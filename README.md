@@ -22,7 +22,8 @@ This codebase includes a basic setup for using **StudyNotion**. To start buildin
     npm start
     ```
 1. Open the project in your browser at [`http://localhost:3000`](http://localhost:3000) to view your project.
-1. Create your React components and add your styles using Tailwind classes. You can also create new CSS files and import them into your components.
+2. Create your React components and add your styles using Tailwind classes. You can also create new CSS files and import them into your components.
+3. Do not forget to add the necessary data in the .env file.
 
 The project is set up to use `postcss-cli` to process your CSS files. You can add your own `tailwind.config.js` file to customize your Tailwind setup.
 
