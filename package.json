@@ -6,6 +6,7 @@
     "@ramonak/react-progress-bar": "^5.3.0",
     "@reduxjs/toolkit": "^2.4.0",
     "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
     "chart.js": "^4.4.7",
     "concurrently": "^9.1.0",
     "copy-to-clipboard": "^3.3.3",
@@ -32,11 +33,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thepranaygupta/react-tailwind-css-starter-pack.git"
+    "url": "git+https://github.com/D-a-k-s-h/StudyNotion.git"
   },
-  "author": "Pranay Gupta",
+  "author": "Daksh Kumar",
   "bugs": {
-    "url": "https://github.com/thepranaygupta/react-tailwind-css-starter-pack/issues"
+    "url": "https://github.com/D-a-k-s-h/StudyNotion.git"
   },
   "scripts": {
     "start": "react-scripts start",
