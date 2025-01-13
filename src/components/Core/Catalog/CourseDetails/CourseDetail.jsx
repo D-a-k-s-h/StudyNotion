@@ -62,8 +62,8 @@ const CourseDetail = () => {
                     <p className='text-3xl text-richblack-5'>{courseDetails?.name}</p>
                     <p>{courseDetails?.description}</p>
                     <div className='flex flex-row gap-2 items-center text-richblack-25'>
-                        <span className='text-yellow-50'>{avgRatingCount || 0}</span>
-                        <RatingStars Review_Count={avgRatingCount}/>
+                        <span className='text-yellow-50'>{avgRatingCount ? avgRatingCount : 0}</span>
+                        <RatingStars Review_Count={avgRatingCount ? avgRatingCount : 0}/>
                         <span>{`(${courseDetails?.ratingAndReview?.length} ratings)`}</span>
                         <span>{`${courseDetails?.studentsEnrolled?.length} students`}</span>
                     </div>
