@@ -20,8 +20,11 @@ const CourseInfo = ({courseDetails}) => {
   const [confirmationModal,setConfirmationModal] = useState(null);
 
   const alreadyEnrolled = () => {
-    if(user !== null && user?.courses.includes(courseId)){
+    if(user !== null && user?.accountType === ACCOUNT_TYPE.STUDENT && user?.courses.includes(courseId)){
       //console.log("courses.includes -> ",user.courses.includes(courseId))
+      return true;
+    }
+    else if(user !== null && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && user?.courses.includes(courseId)){
       return true;
     }
     else{
@@ -30,10 +33,15 @@ const CourseInfo = ({courseDetails}) => {
   }
 
   const handleBuyCourse = () => {
-    if(user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR){
-      toast.error("Instructor can't buy course");
+    if(alreadyEnrolled()){
+      if(user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR){
+        navigate("/dashboard/my-courses");
+      }
+      else if(user && user?.accountType === ACCOUNT_TYPE.STUDENT){
+        navigate('/dashboard/enrolled-courses');
+      }
     }
-    else if(alreadyEnrolled() === false){
+    else{
       if(user === null){
         setConfirmationModal({
           heading:"Please login",
@@ -44,12 +52,12 @@ const CourseInfo = ({courseDetails}) => {
           textBtn2Action: () => setConfirmationModal(null)
         })
       }
+      else if(user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR){
+        toast.error("Instructor cannot buy course");
+      }
       else{
         dispatch(buyCourse([courseId],token,user,dispatch,navigate));
       }
-    }
-    else{
-      navigate("/dashboard/enrolled-courses");
     }
   }
 
