@@ -80,7 +80,7 @@ const Instructor = () => {
                                         {
                                             courses && courses.splice(0,3).map((course,index) =>(
                                                 <div key={index} className='flex flex-col'>
-                                                    <img src={course?.thumbnail} alt='courseThumbnail'/>
+                                                    <img src={course?.thumbnail} alt='courseThumbnail' className='object-cover lg:min-h-[184.05px] lg:min-w-[327.2px]'/>
                                                     <p>{course.name}</p>
                                                     <div className='flex gap-1 text-richblack-200'>
                                                         <p>Students: {course?.studentsEnrolled?.length}</p>
@@ -94,7 +94,7 @@ const Instructor = () => {
                                 </div>
                             </div>
                         ) : (
-                            <div>
+                            <div className='text-center'>
                                 <p className='text-xl'>You have not created any courses yet.</p>
                                 <Link to={"/dashboard/add-course"} className='text-yellow-50 font-medium cursor-pointer'>Create your first course</Link>
                             </div>
