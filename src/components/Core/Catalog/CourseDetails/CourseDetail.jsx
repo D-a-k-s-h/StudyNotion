@@ -10,6 +10,7 @@ import CourseInfo from './CourseInfo';
 import CourseContent from './CourseContent';
 import Footer from '../../../Common/Footer';
 import { formatDate } from '../../../../services/formatDate';
+import SliderSection from '../../../Common/SliderSection';
 
 const CourseDetail = () => {
 
@@ -114,8 +115,9 @@ const CourseDetail = () => {
         </div>
 
         {/* Review Slider */}
-        <div className='w-10/12 mx-auto py-10'>
+        <div className='w-11/12 mx-auto py-10'>
             <p className='text-center text-3xl font-semibold text-richblack-5'>Reviews From other learners</p>
+            <SliderSection courseId={courseId}/>
         </div>
 
         {/* Footer */}

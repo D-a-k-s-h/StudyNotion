@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { getAllRatingsAndReviews } from '../../services/operations/ratingAndReview';
+import { getAllRatingsAndReviews, getCourseSpecificRating } from '../../services/operations/ratingAndReview';
 import {Swiper,SwiperSlide} from 'swiper/react'
 import "swiper/css"
 import "swiper/css/free-mode"
@@ -9,22 +9,38 @@ import {Autoplay, Navigation, Pagination, FreeMode} from 'swiper/modules'
 import RatingStars from './RatingStars';
 
 
-const SliderSection = () => {
+const SliderSection = ({courseId}) => {
 
   const dispatch = useDispatch();
   const [reviews,setReviews] = useState(null);
 
   useEffect(() => {
-    const fetchRatingsAndReviews = async() => {
-      const result = await dispatch(getAllRatingsAndReviews());
-      console.log("fetched ratings and reviews -> ",result);
 
-      if(result){
-        setReviews(result);
+    if(courseId){
+      const fetchRatingsAndReviews = async() => {
+        const result = await dispatch(getCourseSpecificRating(courseId));
+        console.log("fetched ratings and reviews -> ",result);
+  
+        if(result){
+          setReviews(result);
+        }
       }
+
+      fetchRatingsAndReviews();
+    }
+    else{
+      const fetchRatingsAndReviews = async() => {
+        const result = await dispatch(getAllRatingsAndReviews());
+        //console.log("fetched ratings and reviews -> ",result);
+  
+        if(result){
+          setReviews(result);
+        }
+      }
+
+      fetchRatingsAndReviews();
     }
 
-    fetchRatingsAndReviews();
   },[]);
 
   return (
@@ -45,7 +61,7 @@ const SliderSection = () => {
           >
 
             {
-              reviews && reviews.map((review,index) => (
+              reviews !== null ? reviews.map((review,index) => (
                 <SwiperSlide key={index}>
                   <div className='bg-richblack-800 h-[190px] flex flex-col gap-2 p-4'>
                     <div className='flex gap-2'>
@@ -64,7 +80,9 @@ const SliderSection = () => {
                     </div>
                   </div>
                 </SwiperSlide>
-              ))
+              )) : (
+                <div className='text-2xl text-center'>No Ratings and Reviews for course</div>
+              )
             }
 
           </Swiper>

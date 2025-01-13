@@ -51,5 +51,6 @@ export const studentFeatures = {
 
 export const ratingAndReview = {
     LECTURE_COMPLETION_API: BASE_URL + '/course/updatecourseprogress',
-    GET_ALL_RATINGS_AND_REVIEWS: BASE_URL + '/auth/getallreview'
+    GET_ALL_RATINGS_AND_REVIEWS: BASE_URL + '/auth/getallreview',
+    GET_COURSE_SPECIFIC_RATINGS: BASE_URL + '/auth/getcoursespecificrating'
 }

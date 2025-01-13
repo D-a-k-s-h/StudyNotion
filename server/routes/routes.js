@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const {sendOTP,changePassword,login,signUp} = require('../controllers/Auth');
-const {getAllReview,getAverageRating,createRating} = require('../controllers/RatingAndReview');
+const {getAllReview,getAverageRating,createRating,getCourseSpecificRating} = require('../controllers/RatingAndReview');
 
 const {auth,isInstructor,isStudent,isAdmin} = require('../middlewares/auth');
 
@@ -21,6 +21,7 @@ router.post('/sendotp',sendOTP);
 // ********************************************************************************************************
 router.get('/getallreview',getAllReview);
 router.get('/getaveragerating',getAverageRating);
+router.get('/getcoursespecificrating',getCourseSpecificRating);
 router.post('/createrating',auth,isStudent,createRating);
 
 

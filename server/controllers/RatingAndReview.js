@@ -144,7 +144,8 @@ exports.getCourseSpecificRating = async(req,res) => {
         const {courseId} = req.body;
 
         //get rating and review 
-        const getDetails = await Course.findById(courseId,{ratingAndReview:true}).populate({path:"ratingAndReview",select:"rating review"}).exec();
+        const getDetails = await RatingAndReview.findOne(courseId).populate({path:"user",select:"firstName lastName email image"})
+                                                                  .populate({path:"course",select:"name"}).exec();
 
         //validation
         if(!getDetails){
