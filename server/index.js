@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-        origin:"https://studynotion-backend-6vwl.onrender.com",
+        origin:"https://study-notion-kohl-pi.vercel.app",
         credentials:true
     })
 )
