@@ -50,12 +50,14 @@ const SliderSection = ({courseId}) => {
             loop={true}
             autoplay={{delay:2500,disableOnInteraction:false}}
             freeMode={true}
-            slidesPerView={4}
             spaceBetween={25}
+            slidesPerView={1}
             pagination={true}
             navigation={true}
             breakpoints={{
-              1024:{slidesPerView:4}
+              640:{slidesPerView:1},
+              768:{slidesPerView:2},
+              1024:{slidesPerView:4},
             }}
             modules={[Autoplay,Navigation,Pagination,FreeMode]}
           >

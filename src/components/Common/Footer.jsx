@@ -5,26 +5,25 @@ import { FaGoogle } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { ImYoutube } from "react-icons/im";
 import { FooterLink2 } from '../../data/footer-links';
-import { IoIosHeart } from "react-icons/io";
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <div className='border-t border-t-richblack-600'>
         <div className='flex flex-col bg-richblack-800 text-richblack-300'>
-            <div className='w-11/12 mx-auto flex border-b border-b-richblack-600 pt-24 px-24 pb-10'>
-                <div className='w-[50%] flex flex-row gap-10 mr-10 border-r border-r-richblack-600'>
+            <div className='lg:w-11/12 mx-auto flex flex-row border-b border-b-richblack-600 pt-24 px-10 lg:px-24 pb-10'>
+                <div className='lg:w-[50%] flex flex-col lg:flex-row gap-10 mr-3 lg:mr-10 lg:border-r border-r-richblack-600'>
                     <div className='flex flex-col space-y-2'>
                         <img src={footerLogo} alt='fotter logo'/>
                         <p className='text-richblack-5'>Company</p>
                         <p>About</p>
                         <p>Carrier</p>
                         <p>Affiliates</p>
-                        <div className='flex flex-row gap-6'>
-                            <SiFacebook size={20}/>
-                            <FaGoogle size={20}/>
-                            <FaXTwitter size={20}/>
-                            <ImYoutube size={20}/>
+                        <div className='flex flex-row gap-6 text-2xl'>
+                            <SiFacebook />
+                            <FaGoogle />
+                            <FaXTwitter />
+                            <ImYoutube />
                         </div>
                     </div>
                     <div className='flex flex-col gap-4'>
@@ -60,7 +59,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className='w-[50%] flex flex-row gap-10 pl-5'>
+                <div className='lg:w-[50%] flex flex-col lg:flex-row gap-10 pl-5'>
                     <div className='flex flex-col space-y-1'>
                         <p className='text-richblack-5'>{FooterLink2[0].title}</p>
                         {FooterLink2[0].links.map((sub,index) => (
@@ -82,14 +81,14 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='w-11/12 mx-auto flex justify-between mb-10'>
-                <div className='flex flex-row p-2'>
+            <div className='w-11/12 mx-auto flex flex-col lg:flex-row justify-between mb-10'>
+                <div className='flex justify-center lg:justify-start flex-row p-2'>
                     <p className='border-r border-r-richblack-600 pr-2'>Privacy Policy</p>
                     <p className='border-r border-r-richblack-600 pr-2 pl-2'>Cookie Policy</p>
                     <p className='pl-2'>Terms</p>
                 </div>
                 <div className='p-2'>
-                    <p className='flex items-center gap-1'>Made With Love <IoIosHeart/> Codedaksh © 2024 StudyNotion</p>
+                    <p className='text-center'>Made With Love ❤️ Codedaksh © 2024 StudyNotion</p>
                 </div>
             </div>
         </div>

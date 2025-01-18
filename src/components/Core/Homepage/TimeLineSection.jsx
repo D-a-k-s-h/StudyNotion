@@ -31,8 +31,8 @@ const timeline = [
 const TimeLineSection = () => {
   return (
     <div>
-        <div className='flex flex-row gap-40 mt-10'>
-            <div className='relative w-[40%] mx-auto flex flex-col gap-16'>
+        <div className='flex flex-col lg:flex-row gap-10 lg:gap-40 mt-5 lg:mt-10'>
+            <div className='relative w-full lg:w-[40%] lg:mx-auto flex flex-col gap-16'>
 
                 {timeline.map((data,index) => (
                     <div className='flex flex-row items-center gap-4' key={index}>
@@ -52,17 +52,16 @@ const TimeLineSection = () => {
 
             </div>
 
-            <div className='relative w-[60%] mx-auto'>
+            <div className='relative lg:w-[60%] mx-auto'>
                 <div className='relative z-10 w-[100%]'>
-                    <img src={timelineimage} alt='timelineimage'/>
+                    <img src={timelineimage} alt='timelineimage' className='shadow-[0px_0px_60px_2px_#3182ce]'/>
                 </div>
-                <div className='absolute z-0 top-5 right-5 w-[90%] h-[90%] rounded-full animate-pulse shadow-[0px_0px_60px_30px_#3182ce]'></div>
-                <div className='absolute z-20 -bottom-16 right-20 uppercase flex flex-row w-[70%] justify-center items-center p-5 text-richblack-5 bg-caribbeangreen-700'>
-                    <div className='w-[40%] h-fit flex flex-row gap-4 items-center border-r border-richblack-400 '>
+                <div className='absolute z-20 -bottom-16 right-20 uppercase flex flex-col md:flex-row w-[70%] justify-center items-center p-5 text-richblack-5 bg-caribbeangreen-700'>
+                    <div className='lg:w-[40%] h-fit flex flex-row gap-4 items-center md:border-r border-richblack-400 '>
                         <p className='font-bold text-4xl'>10</p>
                         <p className='text-sm text-richblack-200'>Years<br/>Experience</p>
                     </div>
-                    <div className='w[60%] h-fit flex flex-row gap-5 items-center py-5 pl-5'>
+                    <div className='lg:w[60%] h-fit flex flex-row gap-5 items-center py-5 pl-5'>
                         <p className='font-bold text-4xl'>250</p>
                         <p className='text-sm text-richblack-200'>Types of <br/> Courses</p>
                     </div>

@@ -25,19 +25,19 @@ const ExploreMore = () => {
   return (
     <div className='relative'>
         <div className='flex flex-col gap-2'>
-            <p className='text-center text-4xl font-semibold text-richblack-5'>Unlock The <HighlightText text={"Power of code"}/></p>
-            <p className='text-richblack-200 text-center'>Learn to build anything you imagine.</p>
+            <p className='lg:text-center text-4xl font-semibold text-richblack-5'>Unlock The <HighlightText text={"Power of code"}/></p>
+            <p className='text-richblack-200 lg:text-center'>Learn to build anything you imagine.</p>
         </div>
 
-        <div className='w-[38%] mx-auto bg-richblack-800 flex flex-row rounded-full gap-7 py-1 px-4 mt-10 -mb-7'>
+        <div className='lg:w-[38%] hidden mx-auto bg-richblack-800 md:flex justify-around rounded-full gap-7 py-1 px-4 mt-10 -mb-7'>
             {HomePageExplore.map((element,index) => (
                 <p className={`text-sm text-richblack-200 rounded-full cursor-pointer hover:text-richblack-5 transition-all duration-200  py-1 ${currentTab === element.tag ? 'text-richblack-5 bg-black p-2' : ''}`} onClick={() => setMyCard(element.tag)} key={index}>{element.tag}</p>
             ))}
         </div>
 
-        <div className='relative top-20 flex flex-row justify-center gap-10'>
+        <div className='relative top-20 flex md:flex-row flex-col justify-center gap-10'>
             {courses.map((element,index) => (
-                <div className={`w-[21%] flex flex-col gap-3 bg-richblack-800 py-5 ${currentCard === element.heading ? 'bg-white text-richblack-800 shadow-[11px_11px_0px_0px_#f6e05e] transition-all duration-200' : ''}`} onClick={() => setMyCard(element.heading)} key={index}>
+                <div className={`lg:w-[21%] flex flex-col gap-3 bg-richblack-800 py-5 ${currentCard === element.heading ? 'bg-white text-richblack-800 shadow-[11px_11px_0px_0px_#f6e05e] transition-all duration-200' : ''}`} onClick={() => setMyCard(element.heading)} key={index}>
                     <div className='font-semibold px-4'>{element.heading}</div>
                     <div className='text-sm text-richblack-500 px-4'>{element.description}</div>
                     <div className='flex flex-row justify-between mt-12 border-t-2 border-t-richblack-500 border-dashed pt-2'>

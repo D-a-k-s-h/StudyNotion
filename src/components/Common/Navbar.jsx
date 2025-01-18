@@ -50,7 +50,7 @@ const Navbar = () => {
             <Link to={"/"}>
                 <img src={logo} alt='logo' width={160} height={42} loading='lazy'/>
             </Link>
-            <ul className='text-richblack-5 flex gap-5'>
+            <ul className='text-richblack-5 hidden md:flex gap-5'>
                 {NavbarLinks.map((element,index) => (
                     <li key={index}>
                         {

@@ -8,19 +8,19 @@ import CTAButton from './CTAButton'
 const LanguageLearningSection = () => {
   return (
     <div>
-        <div className='flex flex-col gap-10 mt-28'> 
-            <div className='flex flex-col gap-2 text-center'>
+        <div className='flex flex-col gap-10 mt-20 md:mt-28'> 
+            <div className='flex flex-col gap-4 md:gap-2 md:text-center'>
                 <p className='text-4xl font-semibold'>Your swiss knife <HighlightText text={"for learning any language"}/></p>
-                <p className='w-[70%] mx-auto text-lg'>Using spin making learning multiple languages easy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more</p>
+                <p className='md:w-[70%] mx-auto text-lg'>Using spin making learning multiple languages easy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more</p>
             </div>
 
-            <div className='flex flex-row mt-5 justify-center items-center'>
-                <img className='relative object-contain -left-[21rem] blur-sm hover:blur-none transition-all duration-200' src={know_your_progress} alt='KnowYourProgressImage'/>
-                <img className='absolute object-contain blur-sm hover:blur-none transition-all duration-200' src={compare_with_others} alt='CompareWithOthersImage'/>
-                <img className='absolute object-contain right-[10rem] blur-sm hover:blur-none transition-all duration-200' src={plan_your_lessons} alt='PlanYourLessonsImage'/>
+            <div className='flex flex-col md:flex-row md:mt-5 justify-center items-center'>
+                <img className='relative object-contain md:left-[9rem] lg:blur-sm hover:blur-none transition-all duration-200' src={know_your_progress} alt='KnowYourProgressImage'/>
+                <img className='relative object-contain -top-9 md:top-0 lg:blur-sm hover:blur-none transition-all duration-200' src={compare_with_others} alt='CompareWithOthersImage'/>
+                <img className='relative object-contain -top-24 md:top-0 md:right-[10rem] lg:blur-sm hover:blur-none transition-all duration-200' src={plan_your_lessons} alt='PlanYourLessonsImage'/>
             </div>
 
-            <div className='w-fit mx-auto my-14'>
+            <div className='w-fit mx-auto -mt-20 md:mt-0 my-5 md:my-14'>
                 <CTAButton active={true} linkto={"/signup"}>Learn More</CTAButton>
             </div>
         </div>
