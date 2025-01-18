@@ -19,10 +19,10 @@ const Home = () => {
 
         {/* section 1 */}
         <div className='relative text-white w-11/12 flex mx-auto flex-col items-center justify-between'>
-            <div className='w-1/2 mx-auto flex flex-col justify-center items-center gap-9'>
+            <div className='lg:w-1/2 mx-auto flex flex-col justify-center items-center gap-9'>
                 <div>
-                    <div className=' group mt-16 w-fit mx-auto rounded-full font-semibold border-b border-b-richblack-700 bg-richblack-800 hover:outline outline-richblack-700 hover:scale-95 transition-all duration-200'>
-                        <div className='flex items-center gap-2 p-2 transition-all duration-200 group-hover:bg-richblack-900'>
+                    <div className='group mt-10 lg:mt-16 w-fit mx-auto rounded-full font-semibold border-b border-b-richblack-700 bg-richblack-800 hover:outline outline-richblack-700 hover:scale-95 transition-all duration-200'>
+                        <div className='text-sm lg:text-base flex items-center gap-2 p-2 transition-all duration-200 group-hover:bg-richblack-900'>
                             <Link to={'/signup'}>Become an Instructor</Link>
                             <FaChevronCircleRight/>
                         </div>
@@ -45,7 +45,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='w-11/12 md:w-10/12 my-12 shadow-[17px_17px_0px_0px_#ebf8ff]'>
+            <div className='w-11/12 md:w-10/12 lg:w-8/12 my-12 shadow-[17px_17px_0px_0px_#ebf8ff]'>
                 <video muted loop autoPlay>
                     <source src={banner} type='video/mp4'></source>
                 </video>
@@ -136,8 +136,8 @@ const Home = () => {
             </div>
 
             <div className='w-11/12 max-w-fitContent mx-auto flex flex-col gap-7 items-center'>
-            <div className='flex lg:flex-row flex-col justify-center items-center gap-3 lg:gap-20'>
-                <div className='text-3xl font-semibold lg:text-4xl lg:w-[40%]'>
+                <div className='flex lg:flex-row flex-col justify-center items-center gap-3 lg:gap-20'>
+                    <div className='text-3xl font-semibold lg:text-4xl lg:w-[40%]'>
                         Get the skills you need for a <HighlightText text={"job that is in demand."}/>
                     </div>
                     <div className='flex flex-col gap-5 lg:w-[40%]'>
@@ -163,7 +163,7 @@ const Home = () => {
 
         {/* Review Slider */}
         <div className='w-11/12 mx-auto text-richblack-5 flex items-center flex-col justify-center gap-4 py-20'>
-            <h1 className='text-4xl font-semibold'>Reviews From Other Learners</h1>
+            <h1 className='text-3xl md:text-4xl font-semibold'>Reviews From Other Learners</h1>
             <SliderSection/>
         </div>
 
