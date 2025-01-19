@@ -92,62 +92,58 @@ const Signup = () => {
 
 
   return (
-    <div className='w-11/12 flex mx-auto flex-row justify-between mt-28'>
-        <div className='w-[49%] text-richblack-5 p-5'>
+    <div className='w-11/12 max-w-maxContent mx-auto flex flex-row my-20'>
+        <div className='md:w-[56%] text-richblack-5 p-5'>
             <div className='mb-10'>
-                <p className='w-[65%] text-3xl mb-3'>Join the millions learning to code with StudyNotion for free</p>
-                <p className='w-[75%] text-richblack-200'>Build skills for today,tomorrow and beyond. <span className='font-edu-sa italic text-blue-100'>Education to future proof your career.</span></p>
+                <p className='md:w-[65%] text-3xl mb-3'>Join the millions learning to code with StudyNotion for free</p>
+                <p className='md:w-[75%] text-richblack-200'>Build skills for today,tomorrow and beyond. <span className='font-edu-sa italic text-blue-100'>Education to future proof your career.</span></p>
             </div>
 
             <AccountSelector tabData={tabData} field={accountType} setField={setAccountType}/>
 
-            <form onSubmit={submitHandler} className='flex flex-col gap-5 mb-10'>
-                <div className='flex flex-row'>
+            <form onSubmit={submitHandler} className='md:w-[80%] flex flex-col gap-5'>
+                <div className='flex flex-col md:flex-row gap-3'>
                     <div className='flex flex-col'>
-                        <label htmlFor='firstName'>First Name<sup className='text-[#e53939]'>*</sup></label>
-                        <input onChange={changeHandler} type='text' name='firstName' value={firstName} placeholder='Enter First Name' required className='w-[90%] p-4 text-richblack-100 h-12 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
+                        <label htmlFor='firstName'>First Name<sup className='text-red'>*</sup></label>
+                        <input onChange={changeHandler} type='text' name='firstName' value={firstName} placeholder='Enter first name' required className='md:w-full  p-3 text-richblack-100 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
                     </div>
                     <div className='flex flex-col'>
-                        <label htmlFor='lastName'>Last Name<sup className='text-[#e53939]'>*</sup></label>
-                        <input onChange={changeHandler} type='text' value={lastName} name='lastName' placeholder='Enter Last Name' required className='w-[90%] p-4 text-richblack-100 h-12 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
+                        <label htmlFor='lastName'>Last Name<sup className='text-red'>*</sup></label>
+                        <input onChange={changeHandler} type='text' value={lastName} name='lastName' placeholder='Enter last name' required className='md:w-full  p-3 text-richblack-100 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
                     </div>
                 </div>
                 <div className='flex flex-col'>
-                    <label htmlFor='email'>Enter Email<sup className='text-[#e53939]'>*</sup></label>
-                    <input onChange={changeHandler} type='email' value={email} name='email' placeholder='Enter email address' required className='w-[74%] p-4 text-richblack-100 h-12 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
+                    <label htmlFor='email'>Enter Email<sup className='text-red'>*</sup></label>
+                    <input onChange={changeHandler} type='email' value={email} name='email' placeholder='Enter email address' required className='p-3 text-richblack-100 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
                 </div>
-                <div className='flex flex-col'>
-                    <label htmlFor='countryCode'>Phone Number <span className='text-[#e53e3e] -ml-[0.2rem]'>*</span></label>
-                    <div className='flex gap-4'>
-                        <select name='countryCode' className='w-[15%] h-12 p-2 bg-richblack-800 rounded-md border-b border-b-richblack-500'>
-                            <option value={"India"}>+91</option>
+                <div>
+                    <label htmlFor='countryCode'>Phone Number <sup className='text-red'>*</sup></label>
+                    <div className='flex flex-row gap-2 md:gap-4'>
+                        <select name='countryCode' className='w-[30%] md:w-[17%] p-3 bg-richblack-800 rounded-md border-b border-b-richblack-500'>
+                            <option value={"India"}>+91 - India</option>
                             {countryCode.map((element,index) => (
-                                <option value={element.country} key={index}>{element.code}</option>
+                                <option value={element.country} key={index}>{element.code} - {element.country}</option>
                             ))}
                         </select>
-                        
-                        <input type='tel' name='contactNumber' value={contactNumber} onChange={changeHandler} placeholder='Phone Number' required className='w-[56%] h-12 p-2 bg-richblack-800 rounded-md border-b border-b-richblack-500'/>
-                    </div>
-
-                    
-                </div>
-                <div className='flex flex-row'>
-                    <div className='relative flex flex-col'>
-                        <label htmlFor='password'>Create Password<sup className='text-[#e53939]'>*</sup></label>
-                        <input onChange={changeHandler} type={isVisible ? 'text' : 'password'} value={password} name='password' placeholder='Create Password' required className='w-[90%] p-4 text-richblack-100 h-12 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
-                        <p className='absolute right-9 top-10 cursor-pointer' onClick={() => {setVisible()}}>{isVisible ? <BsFillEyeFill/> : <BsFillEyeSlashFill/>}</p>
-                    </div>
-                    <div className='relative flex flex-col'>
-                        <label htmlFor='confirmPassword'>Confirm Password<sup className='text-[#e53939]'>*</sup></label>
-                        <input onChange={changeHandler} type={isVisible2 ? 'text' : 'password'} value={confirmPassword} name='confirmPassword' placeholder='Confirm Password' required className='w-[90%] p-4 text-richblack-100 h-12 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
-                        <p className='absolute right-9 top-10 cursor-pointer' onClick={() => {setVisible2()}}>{isVisible2 ? <BsFillEyeFill/> : <BsFillEyeSlashFill/>}</p>
+                        <input type='tel' name='contactNumber' value={contactNumber} onChange={changeHandler} placeholder='Phone Number' required className='w-full p-3 bg-richblack-800 rounded-md border-b border-b-richblack-500'/>
                     </div>
                 </div>
-                <button type='submit' className='w-[74%] rounded-md text-xl text-center p-3 bg-yellow-100 text-black hover:scale-95 transition-all duration-200'>Sign In</button>
+                <div className='w-full flex flex-col md:flex-row gap-3'>
+                    <div className='relative flex flex-col'>
+                        <label htmlFor='password'>Create Password<sup className='text-red'>*</sup></label>
+                        <input onChange={changeHandler} type={isVisible ? 'text' : 'password'} value={password} name='password' placeholder='Create Password' required className='md:w-full  p-3 text-richblack-100 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
+                        <p className='absolute right-6 top-10 cursor-pointer' onClick={() => {setVisible()}}>{isVisible ? <BsFillEyeFill/> : <BsFillEyeSlashFill/>}</p>
+                    </div>
+                    <div className='relative flex flex-col'>
+                        <label htmlFor='confirmPassword'>Confirm Password<sup className='text-red'>*</sup></label>
+                        <input onChange={changeHandler} type={isVisible2 ? 'text' : 'password'} value={confirmPassword} name='confirmPassword' placeholder='Confirm Password' required className='md:w-full  p-3 text-richblack-100 border-b border-b-richblack-500 bg-richblack-800 rounded-md'/>
+                        <p className='absolute right-6 top-10 cursor-pointer' onClick={() => {setVisible2()}}>{isVisible2 ? <BsFillEyeFill/> : <BsFillEyeSlashFill/>}</p>
+                    </div>
+                </div>
+                <button type='submit' className='rounded-md text-xl text-center p-3 bg-yellow-100 text-black hover:scale-95 transition-all duration-200'>Sign In</button>
             </form>
-            
         </div>
-        <div className='w-[50%] relative'>
+        <div className='relative hidden md:block md:w-[50%]'>
             <img className='absolute z-10' src={signupImage} alt='SignUpImage'/>
             <img className='absolute z-0 mt-5 ml-5' src={frame} alt='frame'/>
         </div>

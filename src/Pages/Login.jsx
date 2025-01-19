@@ -64,13 +64,13 @@ const Login = () => {
 
   return (
     <div className='w-11/12 max-w-maxContent mx-auto text-richblack-5 flex flex-row gap-10 my-28'>
-        <div className='w-[56%] flex flex-col gap-5 mt-4'>
+        <div className='md:w-[56%] flex flex-col gap-5 mt-4'>
             <p className='text-4xl'>Welcome Back</p>
-            <p>Build skills for today,tomorrow and beyond. <span className='font-edu-sa italic text-blue-100'>Education <br/> to future proof your career.</span></p>
+            <p className='md:w-[65%]'>Build skills for today,tomorrow and beyond. <span className='font-edu-sa italic text-blue-100'>Education to future proof your career.</span></p>
             
             <AccountSelector tabData={tabData} field={accountType} setField={setAccountType}/>
 
-            <form onSubmit={handleSubmit} className='w-[65%] flex flex-col gap-4'>
+            <form onSubmit={handleSubmit} className='md:w-[65%] flex flex-col gap-4'>
                 <div className='flex flex-col gap-2'>
                     <label htmlFor='email'>Email Address <span className=' text-[#e53e3e] -ml-[0.2rem]'>*</span></label>
                     <input name='email' onChange={changeHandler} value={email} type='email' placeholder='Enter email address' required className='p-4 text-richblack-100 h-12 border-b border-b-richblack-500 bg-richblack-800 rounded-md'></input>
@@ -84,7 +84,7 @@ const Login = () => {
                 <button type='submit' className='bg-yellow-25 text-richblack-900 w-full p-2 font-semibold rounded hover:scale-95 transition-all duration-200'>Login</button>
             </form>
         </div>
-        <div className='relative w-[50%]'>
+        <div className='relative hidden md:block w-[50%]'>
           <img className='absolute z-10' src={loginImage} alt='loginImage'/>
           <img className='absolute z-0 mt-5 ml-5' src={frame} alt='frame'/>
         </div>
