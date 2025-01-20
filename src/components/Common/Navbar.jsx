@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <div className='h-14 border-b border-b-richblack-500 flex items-center justify-center'>
-        <div className='w-11/12 mx-auto p-2 flex flex-row items-center justify-evenly'>
+        <div className='w-full md:w-11/12 mx-auto p-2 flex flex-row items-center justify-evenly'>
             <Link to={"/"}>
                 <img src={logo} alt='logo' width={160} height={42} loading='lazy'/>
             </Link>
