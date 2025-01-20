@@ -10,6 +10,7 @@ import { RiArrowDownWideLine } from "react-icons/ri";
 import { logout } from '../../services/operations/authAPI';
 import { CgProfile } from "react-icons/cg";
 import { CiLogout } from "react-icons/ci";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
 const Navbar = () => {
@@ -19,6 +20,7 @@ const Navbar = () => {
     const {totalItems} = useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [toggleHamburger,setToggleHamburger] = useState(false);
 
     const {CATEGORIES_API} = categories;
 
@@ -50,12 +52,52 @@ const Navbar = () => {
             <Link to={"/"}>
                 <img src={logo} alt='logo' width={160} height={42} loading='lazy'/>
             </Link>
+            <div className='relative flex md:hidden'>
+                <div className='text-richblack-5 text-2xl p-1 border border-richblack-700 rounded-md' onClick={() => setToggleHamburger(!toggleHamburger)}><RxHamburgerMenu/></div>
+                {
+                    toggleHamburger && (
+                        <ul className='absolute text-richblack-900 bg-richblack-5 rounded-md flex flex-row -left-36 top-10 gap-1 z-50'>
+                            {NavbarLinks.map((element,index) => (
+                                <li key={index} className='p-2'>
+                                    {
+                                        element.title === "Catalog" ? (
+                                            <div className='flex gap-2 cursor-pointer relative items-center group'>
+                                                <p>{element.title}</p>
+                                                <RiArrowDownWideLine/>
+
+                                                <div className='invisible absolute z-10 lg:w-[200px] -left-[100%] top-[100%] translate-y-2 flex flex-col gap-2 font-semibold rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200'>
+
+                                                    <div className='absolute left-[73%] -top-2 h-6 w-6 rotate-45 rounded-md bg-richblack-5'></div>
+
+                                                    {
+                                                        subLinks.length ? (
+                                                                subLinks.map((subLink,index) => (
+                                                                <Link to={`/category/${subLink.name.split(" ").join("-").toLowerCase()}`} key={index} className='hover:text-[#0284C7] transition-all duration-200'>{subLink.name}</Link>
+                                                            ))
+                                                        ) : (<div>No Categories</div>)
+                                                    }
+
+                                                </div>
+                                                
+                                            </div>
+
+                                            ) : (
+
+                                            <Link to={element?.path} key={index} className={`${matchRoute(element?.path) ? 'text-[#0284C7] [text-shadow:_0_0_50px_#0284C7]' : 'text-richblack-900' }`}>{element.title}</Link>
+                                        )
+                                    }
+                                </li>
+                            ))}
+                        </ul>
+                    )
+                }
+            </div>
             <ul className='text-richblack-5 hidden md:flex gap-5'>
                 {NavbarLinks.map((element,index) => (
                     <li key={index}>
                         {
                             element.title === "Catalog" ? (
-                                <div className='flex gap-2 relative items-center group'>
+                                <div className='flex gap-2 cursor-pointer relative items-center group'>
                                     <p>{element.title}</p>
                                     <RiArrowDownWideLine/>
 
