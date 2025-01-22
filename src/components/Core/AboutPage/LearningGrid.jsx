@@ -46,28 +46,28 @@ const LearningGrid = () => {
             learningGrid.map((element,index) => (
                 <div key={index} className={`${index === 0 && 'lg:col-span-2 bg-transparent'}
                                             ${element.order % 2 === 1 ? 'bg-richblack-700' : 'bg-richblack-800'}
-                                            ${element.order === 3 && 'lg:col-start-2'} p-10
+                                            ${element.order === 3 && 'lg:col-start-2'} p-5 md:p-10
                 `}>
                     {
                         element.order < 0 ? (
                             <div className='flex flex-col gap-3'>
-                                <p className='w-[70%] text-4xl font-semibold'>
+                                <p className='md:w-[70%] text-4xl font-semibold'>
                                     {element.heading}
                                     <HighlightText text={element.highlightText}/>
                                 </p>
-                                <p className='w-[85%] text-richblack-300'>
+                                <p className='md:w-[85%] text-richblack-300'>
                                     {element.description}
                                 </p>
-                                <div className='w-fit mt-10'>
+                                <div className='w-fit md:mt-10'>
                                     <CTAButton active={true} linkto={element.BtnLink}>
                                         {element.BtnText}
                                     </CTAButton>
                                 </div>
                             </div>
                         ) : (
-                            <div className='flex flex-col gap-10'>
+                            <div className='flex flex-col gap-5 md:gap-10'>
                                 <p className='text-xl'>{element.heading}</p>
-                                <p className='text-richblack-300 w-[95%]'>{element.description}</p>
+                                <p className='text-richblack-300 md:w-[95%]'>{element.description}</p>
                             </div>
                         )
                     }
