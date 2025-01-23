@@ -9,9 +9,9 @@ import Footer from '../components/Common/Footer';
 const ContactUs = () => {
   return (
     <div>
-        <div className='w-11/12 pl-24 mx-auto flex flex-row gap-10 my-20'>
+        <div className='lg:w-11/12 p-10 lg:pl-24 mx-auto flex flex-col md:flex-row gap-10 py-10 md:my-20'>
             {/* Section 1 */}
-            <section className='w-[40%] h-fit text-richblack-5 flex flex-col gap-10 bg-richblack-800 p-7 rounded-xl'>
+            <section className='md:w-[50%] lg:w-[40%] h-fit text-richblack-5 flex flex-col gap-10 bg-richblack-800 p-7 rounded-xl'>
 
                 <div className='flex flex-row gap-3'>
                     <div className='pt-1'>
@@ -47,7 +47,7 @@ const ContactUs = () => {
             </section>
 
             {/* Section 2 */}
-            <section className='w-[46%] text-richblack-5 border p-10 border-richblack-500 rounded-xl'>
+            <section className='lg:w-[46%] text-richblack-5 border p-5 md:p-10 border-richblack-500 rounded-xl'>
                 <div className='flex flex-col gap-2 mb-10'>
                     <p className='text-3xl font-semibold'>Got a Idea? We've got the skills. <br/> Let's team up</p>
                     <p className='text-richblack-200'>Tell us more about yourself and what you've got in mind.</p>

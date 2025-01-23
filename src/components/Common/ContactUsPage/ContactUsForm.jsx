@@ -44,7 +44,7 @@ const ContactUsForm = () => {
     },[isSubmitSuccessful,reset])
 
   return (
-    <div>
+    <div className='w-full'>
         {
             loading ? (
                 <div class="spinner">
@@ -57,7 +57,7 @@ const ContactUsForm = () => {
                 </div>
             ) : (
                 <form onSubmit={handleSubmit(submitContactForm)} className='flex flex-col gap-4 text-richblack-5'>
-                    <div className='w-[100%] lg:flex justify-between'>
+                    <div className='flex flex-col lg:flex-row lg:justify-between'>
                         <div className='flex flex-col'>
                             <label htmlFor='firstName'>First Name</label>
                             <input
@@ -108,7 +108,7 @@ const ContactUsForm = () => {
                     <div className='flex flex-col'>
                         <label htmlFor='contactNumber'>Phone Number</label>
                         <div className='flex flex-row gap-2'>
-                            <select {...register("countryCode",{required:true})} className='w-[20%] text-richblack-5 bg-richblack-800 p-3 rounded-md border-b border-b-richblack-400'>
+                            <select {...register("countryCode",{required:true})} className='w-[25%] md:w-[20%] text-richblack-5 bg-richblack-800 p-3 rounded-md border-b border-b-richblack-400'>
                                 {countryCode.map((element,index) => (
                                     <option key={index} value={element.code}>{element.code} - {element.country}</option>
                                 ))}

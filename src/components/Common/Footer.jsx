@@ -11,10 +11,10 @@ const Footer = () => {
   return (
     <div className='border-t border-t-richblack-600'>
         <div className='flex flex-col bg-richblack-800 text-richblack-300'>
-            <div className='lg:w-11/12 mx-auto flex flex-row border-b border-b-richblack-600 pt-24 px-10 lg:px-24 pb-10'>
-                <div className='lg:w-[50%] flex flex-col lg:flex-row gap-10 mr-3 lg:mr-10 lg:border-r border-r-richblack-600'>
+            <div className='lg:w-11/12 mx-auto flex flex-row justify-between border-b border-b-richblack-600 pt-24 px-10 lg:px-24 pb-10'>
+                <div className='md:w-[50%] flex flex-col md:flex-row gap-10 mr-3 md:mr-10 lg:border-r border-r-richblack-600'>
                     <div className='flex flex-col space-y-2'>
-                        <img src={footerLogo} alt='fotter logo'/>
+                        <img src={footerLogo} alt='fotter logo' className=''/>
                         <p className='text-richblack-5'>Company</p>
                         <p>About</p>
                         <p>Carrier</p>
@@ -59,7 +59,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className='lg:w-[50%] flex flex-col lg:flex-row gap-10 pl-5'>
+                <div className='md:w-[50%] flex flex-col md:flex-row gap-10 pl-5'>
                     <div className='flex flex-col space-y-1'>
                         <p className='text-richblack-5'>{FooterLink2[0].title}</p>
                         {FooterLink2[0].links.map((sub,index) => (
