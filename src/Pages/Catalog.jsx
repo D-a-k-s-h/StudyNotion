@@ -57,13 +57,13 @@ const Catalog = () => {
 
   return (
     <div className='w-full text-richblack-200 flex flex-col gap-12'>
-        <div className='bg-richblack-800 flex items-start gap-20 px-32 py-10'>
-            <div className='w-[70%] flex flex-col gap-3'>
+        <div className='bg-richblack-800 flex items-start gap-20 px-10 lg:px-32 py-10'>
+            <div className='md:w-[70%] flex flex-col gap-3'>
                 <p>{`Home / Catalog / `}<span className='text-yellow-50'>{`${catalogPageData?.selectedCategory?.name}`}</span></p>
                 <p className='text-richblack-5 text-2xl'>{`${catalogPageData?.selectedCategory?.name}`}</p>
                 <p>{`${catalogPageData?.selectedCategory?.description}`}</p>
             </div>
-            <div className='flex flex-col gap-3'>
+            <div className='md:flex flex-col gap-3 hidden'>
                 <p className='text-richblack-5 text-xl '>Related resources</p>
                 <ul className='list-disc ml-6 flex flex-col gap-2'>
                     <li>CheatSheets</li>
@@ -100,7 +100,7 @@ const Catalog = () => {
             <div className='flex flex-col gap-6'>
                 <p className='text-richblack-5 font-semibold text-3xl'>Frequently Bought</p>
                 <div>
-                    <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                         {
                             catalogPageData?.mostSellingCourses.slice(0,4).map((course,index) => (
                                 <CourseCard course={course} key={index} Height={'max-h-[340px]'}/>

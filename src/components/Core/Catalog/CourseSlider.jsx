@@ -11,7 +11,7 @@ const CourseSlider = ({Courses}) => {
     <div>
         {
           Courses?.length ? (
-            <Swiper 
+            <Swiper
               loop={true} 
               spaceBetween={25} 
               slidesPerView={1} 
@@ -19,6 +19,8 @@ const CourseSlider = ({Courses}) => {
               pagination={true}
               navigation={true}
               breakpoints={{
+                640:{slidesPerView:1},
+                768:{slidesPerView:2},
                 1024:{slidesPerView:3}
               }}
               modules={[Autoplay,Pagination,Navigation]}
