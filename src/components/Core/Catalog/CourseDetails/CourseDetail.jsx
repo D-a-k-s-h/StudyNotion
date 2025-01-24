@@ -35,7 +35,7 @@ const CourseDetail = () => {
     useEffect(() => {
         const getDetails = async() => {
             const result = await dispatch(getAllCourseDetails(courseId));
-            console.log("result -> ",result.courseDetails);
+            //console.log("result -> ",result.courseDetails);
             if(result){
                 setCourseDetails(result.courseDetails);
             }
@@ -54,10 +54,10 @@ const CourseDetail = () => {
     <div className='text-richblack-200 flex flex-col gap-8'>
 
         {/* Header Section */}
-        <div className='bg-richblack-800 w-full'>
+        <div className='md:bg-richblack-800 w-full'>
 
-            <div className='w-10/12 mx-auto lg:h-[318px] flex flex-row gap-5 py-6'>
-                <div className='w-[70%] flex flex-col gap-4 border-r border-r-richblack-700'>
+            <div className='md:w-10/12 px-4 mx-auto md:h-[318px] flex flex-row gap-5 py-6'>
+                <div className='hidden w-[70%] md:flex flex-col gap-4 border-r border-r-richblack-700'>
                     <p>Home / Learning / <span className='text-yellow-50'>{courseDetails?.name}</span></p>
                     <p className='text-3xl text-richblack-5'>{courseDetails?.name}</p>
                     <p>{courseDetails?.description}</p>
@@ -74,16 +74,16 @@ const CourseDetail = () => {
                     </div>
                 </div>
 
-                <div className='w-[30%] z-10'>
-                    <CourseInfo courseDetails={courseDetails}/>
+                <div className='md:w-[30%] md:z-10'>
+                    <CourseInfo courseDetails={courseDetails} avgRatingCount={avgRatingCount}/>
                 </div>
             </div>
 
         </div>
 
         {/* Course Benefits */}
-        <div className='w-10/12 mx-auto'>
-            <div className='w-[60%] p-5 flex flex-col gap-3 border border-richblack-700'>
+        <div className='md:w-10/12 md:mx-auto px-4'>
+            <div className='md:w-[60%] p-5 flex flex-col gap-3 border border-richblack-700'>
                 <p className='text-3xl text-richblack-25'>What you'll learn</p>
                 {
                     courseDetails?.whatYouWillLearn.split(".").map((element,index) => (
@@ -94,9 +94,9 @@ const CourseDetail = () => {
         </div>
 
         {/* Course Content */}
-        <div className='w-10/12 mx-auto flex flex-col gap-2'>
+        <div className='md:w-10/12 px-4 md:mx-auto flex flex-col gap-2'>
             <p className='text-2xl text-richblack-5 font-semibold'>Course Content</p>
-            <ul className='flex list-disc gap-7'>
+            <ul className='flex list-disc gap-6 md:gap-7'>
                 <li className='list-none'>{courseDetails?.courseContent?.length} sections</li>
                 <li>{totalLectures} lectures</li>
                 <li>{`${totalDuration} mins total length`}</li>
@@ -105,18 +105,18 @@ const CourseDetail = () => {
         </div>
 
         {/* Author Details */}
-        <div className='w-10/12 mx-auto flex flex-col gap-3'>
+        <div className='md:w-10/12 md:mx-auto px-4 flex flex-col gap-3'>
             <p className='text-richblack-5 text-3xl font-medium'>Author</p>
             <div className='flex items-center gap-3'>
                 <img className='w-[3.5rem] rounded-full' src={courseDetails?.instructor?.image} alt='InstructorImage'/>
                 <p className='text-richblack-5'>{courseDetails?.instructor?.firstName} {courseDetails?.instructor?.lastName}</p>
             </div>
-            <p className='w-[70%]'>{courseDetails?.instructor?.additionalDetails?.about}</p>
+            <p className='md:w-[70%]'>{courseDetails?.instructor?.additionalDetails?.about}</p>
         </div>
 
         {/* Review Slider */}
         <div className='w-11/12 mx-auto py-10'>
-            <p className='text-center text-3xl font-semibold text-richblack-5'>Reviews From other learners</p>
+            <p className='text-center text-3xl font-semibold text-richblack-5 py-5'>Reviews from other learners</p>
             <SliderSection courseId={courseId}/>
         </div>
 

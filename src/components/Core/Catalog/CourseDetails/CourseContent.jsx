@@ -18,11 +18,11 @@ const CourseContent = ({course}) => {
     }
 
   return (
-    <div className='w-[68%]'>
+    <div className='md:w-[68%]'>
         {
             course && course?.courseContent.map((section,index) => (
                 <details key={index} className='w-full group border border-richblack-700'>
-                    <summary className='w-full bg-richblack-800 border-b border-b-richblack-700 flex p-3 px-5'>
+                    <summary className='w-full bg-richblack-800 border-b border-b-richblack-700 flex p-3 md:px-5'>
                         <div className='w-full flex justify-between items-center'>
                             <div className='flex gap-2 items-center'>
                                 <IoIosArrowDown className='cursor-pointer group-open:rotate-0 -rotate-90'/>

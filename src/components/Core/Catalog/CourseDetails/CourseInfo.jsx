@@ -9,8 +9,9 @@ import { IoShareSocialSharp } from "react-icons/io5";
 import copy from 'copy-to-clipboard';
 import toast from 'react-hot-toast';
 import { ACCOUNT_TYPE } from '../../../../utils/constants';
+import RatingStars from '../../../Common/RatingStars';
 
-const CourseInfo = ({courseDetails}) => {
+const CourseInfo = ({courseDetails,avgRatingCount}) => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -86,12 +87,22 @@ const CourseInfo = ({courseDetails}) => {
   }
 
   return (
-    <div className='flex flex-col rounded-md bg-richblack-700'>
-        <img src={courseDetails?.thumbnail} alt='course thumbnail' className='rounded-t-md'/>
+    <div className='flex flex-col rounded-md md:bg-richblack-700'>
+        <img src={courseDetails?.thumbnail} alt='course thumbnail' className='rounded-md md:rounded-t-md'/>
+        <div className='md:hidden p-4 flex flex-col gap-2'>
+          <p className='text-3xl text-richblack-5'>{courseDetails?.name}</p>
+          <p>{courseDetails?.description}</p>
+          <div className='flex flex-row gap-1 items-center text-richblack-25'>
+              <span className='text-yellow-50'>{avgRatingCount ? avgRatingCount : 0}</span>
+              <RatingStars Review_Count={avgRatingCount ? avgRatingCount : 0}/>
+              <span>{`(${courseDetails?.ratingAndReview?.length} ratings)`}</span>
+              <span>{`${courseDetails?.studentsEnrolled?.length} students`}</span>
+          </div>
+        </div>
         <div className='flex flex-col gap-4 p-5'>
             <p className='text-4xl text-richblack-5'>Rs. {courseDetails?.price}</p>
             <button onClick={handleAddToCart} className={`${alreadyEnrolled() ? 'hidden' : 'block'} bg-yellow-50 text-richblack-900 rounded-md p-2 border-b border-b-richblack-5 font-medium`}>Add to Cart</button>
-            <button onClick={handleBuyCourse} className='rounded-md bg-richblack-900 p-2 text-richblack-5 border-b border-b-richblack-400'>
+            <button onClick={handleBuyCourse} className='rounded-md bg-richblack-800 md:bg-richblack-900 p-2 text-richblack-5 border-b border-b-richblack-400'>
               {alreadyEnrolled() ? 'Go to Course' : 'Buy Now'}
             </button>
             <p className='text-center text-richblack-50'>30-Day Money-Back Guarantee</p>
