@@ -52,7 +52,7 @@ const EnrolledCourses = () => {
                             <Tbody key={index} className='border-b border-b-richblack-700'>
                                 <Tr className='cursor-pointer' onClick={() => navigate(`/view-course/${course._id}/section/${course?.courseContent?.[0]?._id}/sub-section/${course?.courseContent?.[0]?.subSection?.[0]?._id}`)}>
                                     <Td className='md:flex gap-3 p-3'>
-                                        <img src={course.thumbnail} alt='thumbnailImage' className='lg:w-[20%] md:w-[20%] object-fill rounded-xl'/>
+                                        <img src={course.thumbnail} alt='thumbnailImage' className='lg:w-[20%] md:w-[20%] object-cover rounded-xl'/>
                                         <div>
                                             <p className='font-medium'>{course.name}</p>
                                             <p className='text-richblack-200'>{`${course.description.split(" ").splice(0,200).join(" ")}`}</p>
@@ -61,7 +61,7 @@ const EnrolledCourses = () => {
 
                                     <Td className='text-center'>{course?.totalDuration}</Td>
 
-                                    <Td className='px-10'>
+                                    <Td className='md:px-10'>
                                         <p>Progress: {course?.progressPercentage || 0}%</p>
                                         <ProgressBar
                                             completed={course?.progressPercentage || 0}

@@ -23,7 +23,7 @@ const Sidebar = () => {
     }
 
   return (
-    <div className='relative flex min-w-[222px] flex-col border-r-[1px] border-r-richblack-700 h-[calc(100vh-3.5rem)] bg-richblack-800 py-10'>
+    <div className='relative flex lg:min-w-[222px] flex-col border-r-[1px] border-r-richblack-700 h-[calc(100vh-3.5rem)] bg-richblack-800 py-10'>
         <div className='flex flex-col'>
             {
                 sidebarLinks.map((element) => {
@@ -37,7 +37,7 @@ const Sidebar = () => {
                 })
             }
 
-            <hr className='w-52 mx-auto text-richblack-500 my-4'></hr>
+            <hr className='w-10 md:w-32 lg:w-52 mx-auto text-richblack-500 my-4'></hr>
             <div className='w-full mx-auto flex flex-col '>
                 <SidebarLink link={{name:"Settings",path:"/dashboard/settings"}} iconName="VscSettingsGear"/>
                 <button onClick={() => setConfirmationModal({
@@ -49,9 +49,9 @@ const Sidebar = () => {
                     textBtn2Action:() => setConfirmationModal(null)
                 })} className='font-medium text-sm text-richblack-300 '>
                     
-                    <div className='py-2 px-8 flex items-center gap-2'>
+                    <div className='py-2 px-4 md:px-8 flex items-center gap-2'>
                         <VscSignOut className='text-lg'/>
-                        <p>Logout</p>
+                        <p className='hidden md:block'>Logout</p>
                     </div>
 
                 </button>

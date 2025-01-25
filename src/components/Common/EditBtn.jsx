@@ -10,7 +10,7 @@ const EditBtn = () => {
   return (
     <div>
         <button onClick={() => navigate("/dashboard/settings")} className='flex items-center gap-2 rounded-md bg-yellow-25 text-richblack-900 p-1'>
-            <p>Edit</p>
+            <p className='hidden md:block'>Edit</p>
             <FiEdit/>
         </button>
     </div>

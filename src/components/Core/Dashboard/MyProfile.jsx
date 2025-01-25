@@ -7,35 +7,35 @@ const MyProfile = () => {
     const {user} = useSelector((state) => state.profile);
 
   return (
-    <div className='w-[70%] mx-auto text-richblack-25 flex flex-col gap-10'>
+    <div className='md:w-[80%] lg:w-[70%] mx-auto text-richblack-25 flex flex-col gap-5 lg:gap-10'>
         <p className='text-3xl font-semibold'>My Profile</p>
         <div className='flex flex-col gap-4'>
             {/* Display Picture */}
-            <div className='flex flex-row justify-between items-center bg-richblack-800 rounded-md border border-richblack-500 p-7'>
-                <div className='flex flex-row gap-3 items-center'>
+            <div className='flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 bg-richblack-800 rounded-md border border-richblack-500 p-4 md:p-7'>
+                <div className='flex flex-col md:flex-row gap-1 md:gap-3 items-center'>
                     <img src={user.image} alt='userImage' className='aspect-square rounded-full w-[4rem] object-cover'/>
                     <div className='flex flex-col'>
-                        <p>{user.firstName} {user.lastName}</p>
-                        <p className='text-richblack-100'>{user.email}</p>
+                        <p className='text-sm md:text-base text-center md:text-left'>{user.firstName} {user.lastName}</p>
+                        <p className='text-sm md:text-base text-richblack-100 text-center md:text-left'>{user.email}</p>
                     </div>
                 </div>
                 <EditBtn/>
             </div>
 
             {/* About Section */}
-            <div className='flex flex-row items-center justify-between bg-richblack-800 rounded-md border border-richblack-500 p-7'>
+            <div className='flex text-center md:text-left flex-col md:flex-row gap-3 md:gap-0 items-center justify-between bg-richblack-800 rounded-md border border-richblack-500 p-7'>
                 <div className='flex flex-col gap-4'>
-                    <p>About</p>
-                    <p className='w-[91%] text-richblack-200'>{user?.additionalDetails?.about ?? "Write Something About Yourself"}</p>
+                    <p className='text-xl md:text-base text-richblack-5'>About</p>
+                    <p className='md:w-[91%] text-richblack-200'>{user?.additionalDetails?.about ?? "Write Something About Yourself"}</p>
                 </div>
                 <EditBtn/>
             </div>
 
             {/* Personal Details */}
-            <div className='flex flex-row items-center justify-between bg-richblack-800 rounded-md border border-richblack-500 p-7'>
-                <div className='flex flex-col gap-12'>
-                    <p>Personal Details</p>
-                    <div className='flex flex-row gap-10'>
+            <div className='flex flex-col gap-3 md:gap-0 md:flex-row text-center md:text-left items-center justify-between bg-richblack-800 rounded-md border border-richblack-500 p-7'>
+                <div className='flex flex-col gap-4 md:gap-12'>
+                    <p className='text-xl md:text-base text-richblack-5'>Personal Details</p>
+                    <div className='flex flex-col md:flex-row gap-5 md:gap-10'>
                         <div className='flex flex-col gap-3'>
                             <div>
                                 <p>First Name</p>
@@ -43,7 +43,7 @@ const MyProfile = () => {
                             </div>
                             <div>
                                 <p>Email</p>
-                                <p className='text-richblack-100'>{user.email}</p>
+                                <p className='text-richblack-100 text-sm md:text-base'>{user.email}</p>
                             </div>
                             <div>
                                 <p>Gender</p>
