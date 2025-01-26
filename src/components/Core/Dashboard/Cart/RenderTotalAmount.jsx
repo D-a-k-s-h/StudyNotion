@@ -19,7 +19,7 @@ const RenderTotalAmount = () => {
     }
 
   return (
-    <div className='w-[30%] bg-richblack-800 border mt-4 border-richblack-700 rounded-xl p-7 flex flex-col gap-3'>
+    <div className='md:w-[40%] lg:w-[30%] bg-richblack-800 border mt-4 border-richblack-700 rounded-xl p-7 flex flex-col gap-3'>
         <p className='font-medium text-richblack-300'>Total Amount:</p>
         <p className='text-yellow-50 text-2xl font-semibold'>Rs. {totalPrice}</p>
         {

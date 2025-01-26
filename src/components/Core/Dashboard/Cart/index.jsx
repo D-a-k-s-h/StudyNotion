@@ -15,7 +15,7 @@ const Cart = () => {
         {
             totalPrice > 0 
             ? (
-              <div className='flex gap-5 border-t border-t-richblack-700 items-start'>
+              <div className='flex flex-col lg:flex-row gap-5 border-t border-t-richblack-700 md:items-center lg:items-start'>
                 <RenderCartCourses/>  
                 <RenderTotalAmount/>
               </div>
