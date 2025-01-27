@@ -127,9 +127,8 @@ const Settings = () => {
             <p className='text-3xl mt-3 text-richblack-5'>Edit Profile</p>
         </div>
         <div className='flex flex-col gap-10'>
-
             {/* Change Display Picture Section */}
-            <div className='w-[70%] mx-auto flex gap-3 items-center border border-richblack-600 bg-richblack-800 p-5 rounded-lg'>
+            <div className='w-full md:w-[80%] lg:w-[70%] mx-auto flex flex-col text-center md:text-left md:flex-row gap-3 items-center border border-richblack-600 bg-richblack-800 p-5 rounded-lg'>
                 <img src={previewSource || user?.image} alt='userImage' className='rounded-full w-[4rem] h-[4rem] object-cover'/>
                 <div className='flex flex-col gap-2'>
                     <p className='text-richblack-5'>Change Profile Picture</p>
@@ -155,14 +154,14 @@ const Settings = () => {
 
                 {/* Information Change Form */}
                 <form onSubmit={handleSubmit(HandleInformationChange)}>
-                    <div className='w-[70%] mx-auto flex flex-col gap-4 border border-richblack-600 bg-richblack-800 p-5 rounded-lg'>
+                    <div className='w-full md:w-[80%] lg:w-[70%] mx-auto flex flex-col gap-4 border border-richblack-600 bg-richblack-800 p-3 md:p-5 rounded-lg'>
                         <p className='text-richblack-5'>Profile Information</p>
-                        <div className='flex flex-row items-center'>
-                            <div className='w-[50%] flex flex-col gap-4'>
+                        <div className='flex flex-col md:flex-row md:items-center'>
+                            <div className='md:w-[50%] flex flex-col gap-4'>
                                 <div className='flex flex-col'>
                                     <label htmlFor='displayName'>Display Name</label>
                                     <input 
-                                        className='w-[91%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400'
+                                        className='md:w-[91%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400'
                                         type='text' 
                                         name='displayName'
                                         defaultValue={`${user?.firstName} ${user?.lastName}`}
@@ -172,7 +171,7 @@ const Settings = () => {
                                 <div className='flex flex-col'>
                                     <label htmlFor='dateOfBirth'>Date Of Birth</label>
                                     <input 
-                                        className='w-[91%] text-[#000814] bg-[#D3CCC0] p-2 rounded-md border-b border-b-richblack-400'
+                                        className='md:w-[91%] text-[#000814] bg-[#D3CCC0] p-2 rounded-md border-b border-b-richblack-400'
                                         type='date' 
                                         name='dateOfBirth'
                                         defaultValue={user?.additionalDetails?.dateOfBirth}
@@ -182,14 +181,14 @@ const Settings = () => {
                                 <div className='flex flex-col'>
                                     <label htmlFor='contactNumber'>Phone Number</label>
                                     <div className='flex flex-row gap-2'>
-                                        <select {...register("countryCode")} className='w-[18%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400'>
+                                        <select {...register("countryCode")} className='w-[50%] md:w-[18%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400'>
                                             {countryCode.map((element,index) => (
                                                 <option key={index} value={element.code}>{element.code} - {element.country}</option>
                                             ))}
                                         </select>
                                         
                                         <input type='tel'
-                                            className='w-[70%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400'
+                                            className='w-full md:w-[70%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400'
                                             name='contactNumber' 
                                             placeholder='Phone Number'
                                             required
@@ -202,11 +201,11 @@ const Settings = () => {
                                     }
                                 </div>
                             </div>
-                            <div className='w-[50%] flex flex-col gap-4'>
+                            <div className='md:w-[50%] flex flex-col gap-4'>
                                 <div className='flex flex-col'>
                                     <label htmlFor='profession'>Profession</label>
                                     <input
-                                        className='w-[91%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400'
+                                        className='md:w-[91%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400'
                                         type='text' 
                                         name='profession'
                                         defaultValue={user?.additionalDetails?.profession}
@@ -216,20 +215,20 @@ const Settings = () => {
                                 </div>
                                 <div className='flex flex-col'>
                                     <label htmlFor='name'>Gender</label>
-                                    <div className='w-[91%] flex flex-row justify-around border-b border-b-richblack-500 rounded p-[0.58rem] bg-richblack-700'>
-                                        <div className='flex flex-row items-center gap-1'>
+                                    <div className='md:w-[91%] flex flex-col md:flex-row justify-around border-b border-b-richblack-500 rounded p-[0.58rem] bg-richblack-700'>
+                                        <div className='flex flex-row justify-between md:justify-start items-center gap-1'>
                                             <label htmlFor='male'>Male</label>
                                             <input 
-                                                type='radio' 
-                                                name='gender' 
-                                                value={"Male"} 
-                                                id='male' 
-                                                defaultChecked 
-                                                {...register('gender',{required:true})} 
+                                                type='radio'
+                                                name='gender'
+                                                value={"Male"}
+                                                id='male'
+                                                defaultChecked
+                                                {...register('gender',{required:true})}
                                                 className='appearance-none h-4 w-4 border border-richblack-400 rounded-full checked:bg-yellow-25 checked:border-transparent focus:outline-none'
                                             />
                                         </div>
-                                        <div className='flex flex-row items-center gap-1'>
+                                        <div className='flex flex-row justify-between md:justify-start items-center gap-1'>
                                             <label htmlFor='female'>Female</label>
                                             <input 
                                                 type='radio' 
@@ -240,7 +239,7 @@ const Settings = () => {
                                                 className='appearance-none h-4 w-4 border border-richblack-400 rounded-full checked:bg-yellow-25 checked:border-transparent focus:outline-none'
                                             />
                                         </div>
-                                        <div className='flex flex-row items-center gap-1'>
+                                        <div className='flex flex-row justify-between md:justify-start items-center gap-1'>
                                             <label htmlFor='other'>Other</label>
                                             <input 
                                                 type='radio' 
@@ -257,7 +256,7 @@ const Settings = () => {
                                     <label htmlFor='about'>About</label>
                                     <input 
                                         defaultValue={user?.additionalDetails?.about} 
-                                        className='w-[91%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400' 
+                                        className='md:w-[91%] text-richblack-100 bg-richblack-700 p-2 rounded-md border-b border-b-richblack-400' 
                                         type='text' 
                                         name='about' 
                                         placeholder='Enter your bio'
@@ -268,7 +267,7 @@ const Settings = () => {
                         </div>
                         
                     </div>
-                    <div className='w-[70%] mx-auto mt-5 flex justify-end flex-row gap-3'>
+                    <div className='w-full md:w-[80%] lg:w-[70%] mx-auto mt-5 flex justify-end flex-row gap-3'>
                         <p onClick={informationResetHandler} className='bg-richblack-800 p-2 border-r border-r-richblack-600 border-b cursor-pointer border-richblack-600 rounded text-richblack-5'>Cancel</p>
                         <button type='submit' className='bg-yellow-25 border-b-2 border-yellow-5 border-r-2 border-r-yellow-5 text-richblack-900 rounded py-2 px-3'>Save Changes</button>
                     </div>
@@ -276,10 +275,10 @@ const Settings = () => {
                                     
                 {/* Password Change Form */}
                 <form onSubmit={handleSubmit(handlePasswordChange)}>
-                    <div className='w-[70%] mx-auto flex flex-col gap-4 border border-richblack-500 bg-richblack-800 rounded-md p-4'>
+                    <div className='w-full md:w-[80%] lg:w-[70%] mx-auto flex flex-col gap-4 border border-richblack-500 bg-richblack-800 rounded-md p-4'>
                         <p className='text-richblack-5'>Password</p>
-                        <div className='flex flex-row items-center gap-10'>
-                            <div className='w-[50%] flex flex-col relative'>
+                        <div className='flex flex-col md:flex-row items-center gap-5 md:gap-10'>
+                            <div className='w-full md:w-[50%] flex flex-col relative'>
                                 <label htmlFor='currentPassword'>Current Password</label>
                                 <input 
                                     type={password ? 'text' : 'password'} 
@@ -290,7 +289,7 @@ const Settings = () => {
                                 />
                                 <p className='absolute top-9 right-4 cursor-pointer' onClick={() => setPassword(!password)}>{password ? <BsFillEyeSlashFill/> : <BsFillEyeFill/>}</p>
                             </div>
-                            <div className='w-[50%] flex flex-col relative'>
+                            <div className='w-full md:w-[50%] flex flex-col relative'>
                                 <label htmlFor='confirmPassword'>Change Password</label>
                                 <input 
                                     type={confirmPassword ? 'text' : 'password'} 
@@ -303,14 +302,14 @@ const Settings = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='w-[70%] mx-auto mt-4 flex justify-end flex-row gap-3'>
-                        <p onClick={passwordResetHandler} className='bg-richblack-800 p-2 border-r border-r-richblack-600 border-b cursor-pointer border-richblack-600 rounded text-richblack-5'>Cancel</p>
+                    <div className='w-full md:w-[80%] lg:w-[70%] mx-auto mt-4 flex justify-end flex-row gap-3'>
+                        <p onClick={passwordResetHandler} className='bg-richblack-800 flex items-center p-2 border-r border-r-richblack-600 border-b cursor-pointer border-richblack-600 rounded text-richblack-5'>Cancel</p>
                         <button type='submit' className='bg-yellow-25 border-b-2 border-yellow-5 border-r-2 border-r-yellow-5 text-richblack-900 rounded py-2 px-3'>Change Password</button>
                     </div>
                 </form>
 
                 {/* Delete Profile Form */}
-                <div className='w-[70%] mx-auto rounded-md border border-[#e03f3fc9] bg-[#340019] p-4 flex flex-row gap-5'>
+                <div className='w-full md:w-[80%] lg:w-[70%] mx-auto rounded-md border border-[#e03f3fc9] bg-[#340019] p-4 flex flex-col items-center md:items-start md:flex-row gap-5'>
                     <MdDelete className='w-[4rem] h-[4rem] text-4xl bg-[#691432] text-[#ef476f] rounded-full p-3'/>
                     <div className='flex flex-col gap-3'>
                         <p className='text-2xl font-semibold'>Delete Account</p>
