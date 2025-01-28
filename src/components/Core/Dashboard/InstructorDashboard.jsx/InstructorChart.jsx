@@ -65,20 +65,20 @@ const InstructorChart = ({courses}) => {
         },
         layout:{
             padding:{
-                top:20,
-                bottom:20
+                top:10,
+                bottom:10
             }
         }
     };
 
   return (
-    <div className='flex w-[80%] bg-richblack-800 p-3 flex-col gap-2'>
+    <div className='flex flex-col items-center md:items-start md:w-[80%] bg-richblack-800 p-3 gap-2'>
         <p>Visualize</p>
         <div className='flex gap-4'>
             <button className={`p-2 rounded ${currChart === "Students" ? 'bg-richblack-700 text-yellow-50' : 'opacity-80'} hover:bg-richblack-700 transition-all duration-200`} onClick={() => setCurrChart("Students")}>Students</button>
             <button className={`p-2 rounded ${currChart === "Income" ? 'bg-richblack-700 text-yellow-50' : 'opacity-80'} hover:bg-richblack-700 transition-all duration-200`} onClick={() => setCurrChart("Income")}>Income</button>
         </div>
-        <div className='w-[50%] self-center'>
+        <div className='w-full lg:w-[50%] self-center'>
             <Pie data={currChart === "Students" ? chartDataForStudents : chartDataForIncome} options={options}/>
         </div>
     </div>

@@ -16,7 +16,7 @@ const MyProfile = () => {
                     <img src={user.image} alt='userImage' className='aspect-square rounded-full w-[4rem] object-cover'/>
                     <div className='flex flex-col'>
                         <p className='text-sm md:text-base text-center md:text-left'>{user.firstName} {user.lastName}</p>
-                        <p className='text-sm md:text-base text-richblack-100 text-center md:text-left'>{user.email}</p>
+                        <p className='text-richblack-100 text-center md:text-left'>{user.email}</p>
                     </div>
                 </div>
                 <EditBtn/>
@@ -43,7 +43,7 @@ const MyProfile = () => {
                             </div>
                             <div>
                                 <p>Email</p>
-                                <p className='text-richblack-100 text-sm md:text-base'>{user.email}</p>
+                                <p className='text-richblack-100'>{user.email}</p>
                             </div>
                             <div>
                                 <p>Gender</p>

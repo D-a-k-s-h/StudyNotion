@@ -52,9 +52,9 @@ const Instructor = () => {
                     {
                         courses.length > 0 ? (
                             <div className='flex flex-col gap-3'>
-                                <div className='flex w-full justify-between gap-2'>
+                                <div className='flex flex-col md:flex-row w-full justify-between gap-2'>
                                     {instructorData && <InstructorChart courses={instructorData}/>}
-                                    <div className='w-[20%] flex flex-col gap-4 rounded bg-richblack-800 p-3'>
+                                    <div className='md:w-[20%] text-center md:text-left flex flex-col gap-4 rounded bg-richblack-800 p-3'>
                                         <p className='text-xl font-semibold'>Statistics</p>
                                         <div className='flex flex-col'>
                                             <p className='text-richblack-100'>Total Courses</p>
@@ -76,7 +76,7 @@ const Instructor = () => {
                                         <p className='font-bold text-lg'>Your Courses</p>
                                         <Link to={"/dashboard/my-courses"} className='text-yellow-50 font-medium cursor-pointer'>view all</Link>
                                     </div>
-                                    <div className='flex gap-3'>
+                                    <div className='flex flex-col lg:flex-row gap-3'>
                                         {
                                             courses && courses.splice(0,3).map((course,index) =>(
                                                 <div key={index} className='flex flex-col'>
