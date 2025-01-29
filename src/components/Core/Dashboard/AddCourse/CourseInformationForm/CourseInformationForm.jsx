@@ -278,7 +278,7 @@ const CourseInformationForm = () => {
         <div>
             <RequirementField
                 name='courseRequirements'
-                label='Requirements/instructions'
+                label='Requirements / instructions'
                 register={register}
                 errors={errors}
                 setValue={setValue}

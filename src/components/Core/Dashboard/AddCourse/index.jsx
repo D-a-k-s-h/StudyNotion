@@ -16,13 +16,11 @@ const AddCourse = () => {
             Back to dashboard
         </button>
         <h1 className='text-3xl self-start text-richblack-5'>Add Course</h1>
-        <div className='text-richblack-5 flex flex-row gap-1 items-start'>
-            <div className='w-[50%] mx-auto flex flex-col gap-6'>
-                <div>
-                    <RenderSteps/>
-                </div>
+        <div className='text-richblack-5 flex flex-col md:flex-row gap-10 md:gap-1 items-start'>
+            <div className='w-full md:w-[50%] mx-auto'>
+                <RenderSteps/>
             </div>
-            <div className='w-[40%] border border-richblack-700 bg-richblack-800 rounded-md flex flex-col gap-3 p-4'>
+            <div className='w-full md:w-[40%] mx-auto border border-richblack-700 bg-richblack-800 rounded-md flex flex-col gap-3 p-4'>
                 <p className='text-xl flex flex-row items-center gap-1'><BsFillLightningChargeFill className='text-yellow-5'/>Course Upload Tips</p>
                 <ul className='text-sm text-richblack-100 list-disc pl-5 flex flex-col gap-2'>
                     <li>Set the Course Price option or make it free.</li>

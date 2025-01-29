@@ -98,7 +98,7 @@ const Upload = ({
                             Drag and drop an {!video ? "image" : "video"}, or <span className='text-yellow-50'>Browse</span><br/>
                             Max 6MB each (12MB for videos)
                         </p>
-                        <ul className='flex list-disc text-sm gap-10 font-semibold text-richblack-300'>
+                        <ul className='flex flex-col text-center md:text-base md:flex-row list-disc text-sm gap-3 md:gap-10 font-semibold text-richblack-300'>
                             <li>Aspect Ratio 16:9</li>
                             <li>Recommended size 1024x576</li>
                         </ul>

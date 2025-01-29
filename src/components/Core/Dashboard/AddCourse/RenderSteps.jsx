@@ -65,17 +65,17 @@ const RenderSteps = () => {
             {steps.map((item) => (
             <>
                 <div
-                className="flex min-w-[130px] flex-col items-center gap-y-2"
+                className="flex lg:min-w-[130px] flex-col items-center gap-y-2"
                 key={item.id}
                 >
                 
-                <p
-                    className={`text-sm ${
-                    step >= item.id ? "text-richblack-5" : "text-richblack-500"
-                    }`}
-                >
-                    {item.title}
-                </p>
+                    <p
+                        className={`text-sm ${
+                        step >= item.id ? "text-richblack-5" : "text-richblack-500"
+                        }`}
+                    >
+                        {item.title}
+                    </p>
                 </div>
                 
             </>
