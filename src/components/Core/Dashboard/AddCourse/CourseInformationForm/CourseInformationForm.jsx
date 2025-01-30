@@ -6,7 +6,7 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import toast from 'react-hot-toast';
 import ChipInput from './ChipInput';
 import RequirementField from './RequirementField';
-import { setCourse, setEditCourse, setStep } from '../../../../../slices/courseSlice';
+import { setCourse, setStep } from '../../../../../slices/courseSlice';
 import { setLoading } from '../../../../../slices/authSlices';
 import { COURSE_STATUS } from '../../../../../utils/constants';
 import Upload from '../../Upload';
@@ -17,9 +17,6 @@ const CourseInformationForm = () => {
     const dispatch = useDispatch();
     const [category, setCategory] = useState([]);
     const {course, editCourse} = useSelector((state) => state.course);
-    const [image,setImage] = useState(null);
-    const [previewSource, setPreviewSource] = useState(null);
-    const fileInput = useRef(null);
     const {token} = useSelector((state) => state.auth);
 
     const {
@@ -41,21 +38,6 @@ const CourseInformationForm = () => {
         toast.dismiss(toastId);
     }
 
-    const previewFile = (file) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setPreviewSource(reader.result);
-        }
-    }
-
-    const previewHandler = (e) => {
-        const file = e.target.files[0];
-        if(file){
-            previewFile(file);
-            setImage(file);
-        }
-    }
 
     const isFormUpdated = () => {
         const currentValues = getValues();
@@ -106,7 +88,7 @@ const CourseInformationForm = () => {
                     formData.append("category",data.category);
                 }
                 if(currentValues.thumbnail !== course.thumbnail){
-                    formData.append("thumbnail",image);
+                    formData.append("thumbnail",data.thumbnail);
                 }
                 if(currentValues.courseRequirements.toString() !== course.instructions.toString()){
                     formData.append("instructions",JSON.stringify(data.courseRequirements));
@@ -131,7 +113,7 @@ const CourseInformationForm = () => {
         else{
             //create new course
             const formData = new FormData();
-            formData.append("thumbnail",image);
+            formData.append("thumbnail",data.thumbnail);
             formData.append("name",data.name);
             formData.append("description",data.description);
             formData.append("price",data.price);
@@ -169,7 +151,6 @@ const CourseInformationForm = () => {
             setValue("category",course.category);
             setValue("thumbnail",course.thumbnail);
             setValue("courseRequirements",course.instructions);
-            setPreviewSource(course.thumbnail);
         }
     },[]);
 
@@ -253,7 +234,7 @@ const CourseInformationForm = () => {
 
         {/*Choose thumbnail*/}
         <Upload
-            name="courseThumbnail"
+            name="thumbnail"
             label="Course Thumbnail"
             register={register}
             setValue={setValue}

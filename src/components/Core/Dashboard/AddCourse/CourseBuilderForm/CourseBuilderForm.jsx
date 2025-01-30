@@ -96,7 +96,7 @@ const CourseBuilderForm = () => {
   }
 
   return (
-    <div className='bg-richblack-800 flex flex-col gap-4 border border-richblack-500 rounded-md p-6'>
+    <div className='bg-richblack-800 flex flex-col gap-4 border border-richblack-500 rounded-md p-3 md:p-6'>
       <p className='text-2xl font-semibold'>Course Builder</p>
       <form onSubmit={handleSubmit(submitHandler)} className='flex flex-col gap-6'>
 

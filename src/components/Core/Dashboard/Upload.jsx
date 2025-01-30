@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDropzone } from 'react-dropzone';
-import { useSelector } from 'react-redux'
 import { Player } from 'video-react';
 import { FaCloudArrowUp } from "react-icons/fa6";
 import "video-react/dist/video-react.css"
@@ -13,10 +12,9 @@ const Upload = ({
     errors,
     video = false,
     viewData = null,
-    editData = null
+    editData = null,
 }) => {
 
-    const {course} = useSelector((state) => state.course);
     const [previewSource,setPreviewSource] = useState(viewData ? viewData : editData ? editData : "");
     const [selectedFile,setSelectedFile] = useState(viewData ? viewData : editData ? editData : "");
 
@@ -64,7 +62,7 @@ const Upload = ({
         <div className={`${isDragActive ? 'bg-richblack-600' : 'bg-richblack-700'} rounded-md bg-richblack-700 text-richblack-200 border-2 border-dashed border-richblack-500`}>
             {
                 previewSource ? (
-                    <div className='w-full flex flex-col p-6'>
+                    <div className='w-full flex flex-col p-2 md:p-6'>
                         {
                             !video ? (
                                 <img 

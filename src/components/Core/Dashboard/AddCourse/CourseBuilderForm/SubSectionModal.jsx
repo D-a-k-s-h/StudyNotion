@@ -88,11 +88,11 @@ const SubSectionModal = ({
         }
 
         const formData = new FormData();
-        console.log("video file in form data -> ",data.videoFile[0]);
+        console.log("video file in form data -> ",data.videoFile);
         formData.append("title", data.title);
         formData.append("description", data.description);
         formData.append("sectionId", modalData);
-        formData.append("videoFile", data.videoFile[0]);
+        formData.append("videoFile", data.videoFile);
 
         const result = await dispatch(createSubSection(formData, token));
         console.log("creating sub-section result -> ", result);
@@ -118,13 +118,13 @@ const SubSectionModal = ({
 
     return (
         <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm'>
-            <div className='flex flex-col w-[32rem] border border-richblack-500 bg-richblack-800 rounded-md'>
+            <div className='flex flex-col w-full md:w-[32rem] lg:w-[32rem] border border-richblack-500 bg-richblack-800 rounded-md'>
                 <div className='flex justify-between rounded-t-md border-b border-b-richblack-500 items-center bg-richblack-700 p-2'>
                     <p>{add && 'Adding'} {edit && 'Editing'} {view && 'Viewing'} Lecture</p>
                     <RxCross1 className='cursor-pointer hover:text-red' onClick={() => setModalData(null)} />
                 </div>
 
-                <form onSubmit={handleSubmit(submitHandler)} className='flex flex-col gap-4 p-7'>
+                <form onSubmit={handleSubmit(submitHandler)} className='flex flex-col gap-4 p-3 md:p-7'>
                     <Upload
                         name={"videoFile"}
                         label={"Lecture video"}

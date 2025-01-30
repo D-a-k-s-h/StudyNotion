@@ -89,11 +89,11 @@ const PublishForm = () => {
             </label>
           </div>
 
-          <div className='flex justify-between items-center'>
+          <div className='flex gap-4 md:gap-0 flex-col md:flex-row justify-between md:items-center'>
             <div>
               <button type='button' onClick={() => dispatch(setStep(2))} className='flex items-center bg-richblack-700 shadow-[2px_2px_0px_0px_#585D69] p-2 hover:scale-95 rounded-md transition-all duration-200'><MdArrowBack/>Back</button>
             </div>
-            <div className='flex gap-2'>
+            <div className='flex gap-3 flex-col md:flex-row md:gap-2'>
               <button type='submit' onClick={saveAsDraft} className='bg-richblack-700 rounded-md p-2 shadow-[2px_2px_0px_0px_#585D69] hover:scale-95 transition-all duration-200'>Save as Draft</button>
               <button type='submit' className='bg-yellow-50 rounded-md p-2 text-richblack-900 hover:scale-95 transition-all duration-200'>Save and publish</button>
             </div>
