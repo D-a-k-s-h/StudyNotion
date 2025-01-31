@@ -33,7 +33,7 @@ const ForgotPassword = () => {
             ) 
             : 
             (
-                <div className='w-[25%] flex flex-col gap-5'>
+                <div className='lg:w-[25%] md:w-[50%] p-10 md:p-0 flex flex-col gap-5'>
                     <div className='text-3xl'>
                         {
                             !emailSent ? 'Reset Your Password' : 'Check Email'

@@ -28,7 +28,7 @@ const EditCourse = () => {
   return (
     <div className='text-richblack-5'>
         <p className='text-3xl'>Edit Course</p>
-        <div className='w-full md:w-7/12 mx-auto mt-10 md:mt-0'>
+        <div className='w-full lg:w-7/12 mx-auto mt-10 md:mt-0'>
             {
                 course ? (<RenderSteps/>) : (<p>No Course Found</p>)
             }

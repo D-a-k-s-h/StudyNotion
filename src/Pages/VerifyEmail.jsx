@@ -53,7 +53,7 @@ const VerifyEmail = () => {
                 </div>
             ) : (
                 <div onSubmit={submitHandler} className='w-full h-screen flex justify-center items-center text-richblack-5'>
-                    <div className='w-[25%] flex flex-col gap-4'>
+                    <div className='lg:w-[25%] md:w-[50%] flex flex-col gap-4'>
                         <p className='text-3xl'>Verify Email</p>
                         <p className='text-richblack-200 mb-3'>A verification code has been sent to you. Enter the code below</p>
                         <form className='flex flex-col gap-6 items-center'>
@@ -62,7 +62,7 @@ const VerifyEmail = () => {
                             onChange={setOtp}
                             numInputs={6}
                             renderInput={(props) => <input {...props}
-                            className='w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50' />}
+                            className='w-[48px] lg:w-[200px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 text-center focus:border-0 focus:outline-2 focus:outline-yellow-50' />}
                         />
 
                             <button type='submit' className='w-full p-2 bg-yellow-25 text-richblack-900 rounded hover:scale-95 transition-all duration-200'>Verify Email</button>

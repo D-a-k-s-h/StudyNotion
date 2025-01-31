@@ -49,7 +49,7 @@ const Navbar = () => {
 
   return (
     <div className='h-14 border-b border-b-richblack-500 flex items-center justify-center'>
-        <div className='w-full md:w-11/12 mx-auto p-2 flex flex-row items-center justify-evenly'>
+        <div className='w-full md:w-11/12 mx-auto p-2 flex flex-row items-center justify-around'>
             <Link to={"/"}>
                 <img src={logo} alt='logo' width={160} height={42} loading='lazy'/>
             </Link>
@@ -165,7 +165,7 @@ const Navbar = () => {
                             <div className='group relative flex items-center gap-2'>
                                 <img src={user?.image} alt='useImage' className='w-7 h-7 rounded-full cursor-pointer object-cover'/>
                                 <RiArrowDownWideLine className='text-richblack-5 text-xl'/>
-                                <div className='invisible w-36 absolute z-50 border border-richblack-500 rounded-md p-4 opacity-0 flex flex-col gap-3 bg-richblack-800 -left-8 top-8 group-hover:opacity-100 group-hover:visible transition-all duration-200'>
+                                <div className='invisible w-36 absolute z-50 border border-richblack-500 rounded-md p-4 opacity-0 flex flex-col gap-3 bg-richblack-800 -left-20 md:-left-8 top-8 group-hover:opacity-100 group-hover:visible transition-all duration-200'>
                                     <div className='flex items-center gap-2 text-richblack-300 hover:text-richblack-5 transition-all duration-200'>
                                         <CgProfile/>
                                         <Link to={"/dashboard/my-profile"} className='font-semibold'>My Profile</Link>

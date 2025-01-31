@@ -56,7 +56,7 @@ const MyCourses = () => {
             {/* BAR */}
             <Thead className='border-b border-b-richblack-700'>
                 <Tr className='flex justify-around p-2'>
-                    <Th className='w-[70%]'>Courses</Th>
+                    <Th className='w-[55%] lg:w-[70%]'>Courses</Th>
                     <Th>Duration</Th>
                     <Th>Price</Th>
                     <Th>Actions</Th>

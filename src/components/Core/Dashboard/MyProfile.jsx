@@ -7,7 +7,7 @@ const MyProfile = () => {
     const {user} = useSelector((state) => state.profile);
 
   return (
-    <div className='md:w-[80%] lg:w-[70%] mx-auto text-richblack-25 flex flex-col gap-5 lg:gap-10'>
+    <div className='w-full lg:w-[70%] mx-auto text-richblack-25 flex flex-col gap-5 lg:gap-10'>
         <p className='text-3xl font-semibold'>My Profile</p>
         <div className='flex flex-col gap-4'>
             {/* Display Picture */}

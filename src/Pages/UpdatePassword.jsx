@@ -59,7 +59,7 @@ const UpdatePassword = () => {
                 </div>
 
             ) : (
-                <div className='w-[25%] flex flex-col gap-4'>
+                <div className='lg:w-[25%] md:w-[50%] p-10 md:p-0 flex flex-col gap-4'>
                     <p className='text-3xl font-semibold'>Choose New Password</p>
                     <p className='text-richblack-300'>Almost done. Enter your new password and youre all set.</p>
                     <form onSubmit={submitHandler} className='flex flex-col gap-5'>
