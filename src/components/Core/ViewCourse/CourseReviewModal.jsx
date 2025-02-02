@@ -42,8 +42,8 @@ const CourseReviewModal = ({setReviewModal}) => {
   },[]);
 
   return (
-    <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm'>
-      <div className='text-richblack-5 rounded-md w-[35%] bg-richblack-800'>
+    <div className='fixed inset-0 z-[1000] !mt-0 grid place-items-center p-4 md:p-0 overflow-auto bg-white bg-opacity-10 backdrop-blur-sm'>
+      <div className='text-richblack-5 rounded-md w-full md:w-[60%] lg:w-[35%] bg-richblack-800'>
 
         {/* Modal Header */}
         <div className='flex justify-between rounded-t-md items-center bg-richblack-600 p-2 border-b border-b-richblack-300'>

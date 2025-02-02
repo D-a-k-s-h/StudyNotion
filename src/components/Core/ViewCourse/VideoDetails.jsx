@@ -124,7 +124,7 @@ const VideoDetails = () => {
   },[courseEntireData,courseSectionData,location.pathname]);
 
   return (
-    <div className='min-w-[1000px] text-richblack-5'>
+    <div className='min-w-[235px] md:min-w-[600px] lg:min-w-[1000px] text-richblack-5'>
         {
           !videoData ? (
             <p>No Lecture Found</p>
@@ -134,7 +134,7 @@ const VideoDetails = () => {
 
               {
                 videoEnded && (
-                  <div className='absolute w-[65%] h-[70%] flex flex-col gap-2 justify-center items-center z-20'>
+                  <div className='absolute w-[60%] md:w-[70%] md:h-[40%] lg:w-[65%] lg:h-[70%] flex flex-col gap-2 justify-center items-center z-20'>
                     {
                       !completedLecture.includes(subSectionId) && (
                         <button className='rounded-md flex items-center gap-2 bg-yellow-50 text-richblack-900 p-2' onClick={handleLectureCompletion}><SiTicktick/>Mark as completed</button>

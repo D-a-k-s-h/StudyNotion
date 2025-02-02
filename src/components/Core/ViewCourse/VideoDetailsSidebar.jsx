@@ -38,17 +38,17 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
     },[courseSectionData,courseEntireData,location.pathname]);
 
   return (
-    <div className='relative min-h-[calc(100vh-3.5rem)] text-richblack-5 flex flex-col gap-6 min-w-[222px] bg-richblack-800 border-r border-r-richblack-700'>
+    <div className='relative min-h-[calc(100vh-3.5rem)] text-richblack-5 flex flex-col gap-6 lg:min-w-[222px] bg-richblack-800 border-r border-r-richblack-700'>
       {/* For buttons and headings */}
-      <div className='flex flex-col gap-4 p-6 border-b border-b-richblack-700'>
-          <div className='flex gap-10 justify-between'>
+      <div className='flex flex-col gap-4 p-1 md:p-4 lg:p-6 border-b border-b-richblack-700'>
+          <div className='flex flex-col md:flex-row gap-2 md:gap-5 lg:gap-10 justify-between'>
             <button className='flex gap-1 items-center text-richblack-200' onClick={() => navigate("/dashboard/enrolled-courses")}>
               <FaLongArrowAltLeft/>
               Back
             </button>
 
-            <button className='p-2 bg-yellow-50 flex gap-1 items-center text-richblack-900 rounded-md font-medium' onClick={() => setReviewModal(true)}>
-              <AiOutlinePlusCircle className='text-lg'/> Add Review
+            <button className='p-1 md:p-2 bg-yellow-50 flex md:gap-1 items-center text-richblack-900 justify-center text-sm md:text-base rounded-md font-medium' onClick={() => setReviewModal(true)}>
+              <AiOutlinePlusCircle className='hidden md:block text-lg'/> Add Review
             </button>
           </div>
           <div className='flex flex-col gap-2'>
@@ -63,7 +63,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
           courseSectionData.map((section,index) => (
             <div key={index} className='flex flex-col gap-1'>
                 {/* Section */}
-                <div onClick={() => setActiveStatus(section._id)} className='cursor-pointer flex justify-between border border-richblack-600 bg-richblack-700 p-3 items-center'>
+                <div onClick={() => setActiveStatus(section._id)} className='cursor-pointer flex justify-between border border-richblack-600 bg-richblack-700 p-2 md:p-3 items-center'>
                   <p>{section.sectionName}</p>
                   <MdKeyboardDoubleArrowDown className={`${activeStatus !== section._id && 'rotate-90'} transition-all duration-200`}/>
                 </div>
