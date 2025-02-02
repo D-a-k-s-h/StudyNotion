@@ -85,9 +85,9 @@ const Navbar = () => {
                     </li>
                 ))}
             </ul>
-            <div className='flex flex-row gap-3'>
+            <div className='flex flex-row items-center gap-2 md:gap-3'>
                 <div className='relative flex md:hidden group'>
-                    <div className='text-richblack-5 text-2xl p-1 border border-richblack-700 rounded-md'><RxHamburgerMenu/></div>
+                    <div className='text-richblack-5 text-2xl border border-richblack-700 rounded-md'><RxHamburgerMenu/></div>
                     {
                         (
                             <ul className='absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 text-richblack-900 bg-richblack-5 rounded-md flex flex-row -left-36 top-10 gap-1 z-50'>
@@ -133,7 +133,7 @@ const Navbar = () => {
                 {
                     token === null && (
                         <Link to={"/login"}>
-                            <button className='p-2 rounded-md text-richblack-100 border hover:text-[#0284C7] transition-all duration-200 bg-richblack-800'>Login</button>
+                            <button className='text-sm md:text-base p-2 rounded-md text-richblack-100 border hover:text-[#0284C7] transition-all duration-200 bg-richblack-800'>Login</button>
                         </Link>
                     )
                 }
@@ -141,14 +141,14 @@ const Navbar = () => {
                 {
                     token === null && (
                         <Link to={"/signup"}>
-                            <button className='p-2 text-richblack-100 border rounded-md hover:text-[#0284C7] transition-all duration-200 bg-richblack-800'>Sign up</button>
+                            <button className='text-sm md:text-base p-2 text-richblack-100 border rounded-md hover:text-[#0284C7] transition-all duration-200 bg-richblack-800'>Signup</button>
                         </Link>
                     )
                 }
 
                 {
                     user && (
-                        <div className='flex flex-row items-center gap-5'>
+                        <div className='flex flex-row items-center gap-2 md:gap-5'>
                             {
                                 user?.accountType !== "Instructor" && (
                                     <Link to={"/dashboard/wishlist"}>
