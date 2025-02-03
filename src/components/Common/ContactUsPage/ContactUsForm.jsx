@@ -108,7 +108,7 @@ const ContactUsForm = () => {
                     <div className='flex flex-col'>
                         <label htmlFor='contactNumber'>Phone Number</label>
                         <div className='flex flex-row gap-2'>
-                            <select {...register("countryCode",{required:true})} className='w-[25%] md:w-[20%] text-richblack-5 bg-richblack-800 p-3 rounded-md border-b border-b-richblack-400'>
+                            <select {...register("countryCode",{required:true})} className='w-[41%] sm:w-[25%] md:w-[20%] text-richblack-5 bg-richblack-800 p-3 rounded-md border-b border-b-richblack-400'>
                                 {countryCode.map((element,index) => (
                                     <option key={index} value={element.code}>{element.code} - {element.country}</option>
                                 ))}
