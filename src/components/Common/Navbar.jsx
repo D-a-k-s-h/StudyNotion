@@ -90,7 +90,7 @@ const Navbar = () => {
                     <div className='text-richblack-5 text-2xl border border-richblack-700 rounded-md'><RxHamburgerMenu/></div>
                     {
                         (
-                            <ul className='absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 text-richblack-900 bg-richblack-5 rounded-md flex flex-row -left-36 top-10 gap-1 z-50'>
+                            <ul className='absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 text-richblack-900 bg-richblack-5 rounded-md flex flex-row -left-44 md:-left-36 top-10 gap-1 z-50'>
                                 {NavbarLinks.map((element,index) => (
                                     <li key={index} className='p-2'>
                                         {
