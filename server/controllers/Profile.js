@@ -10,42 +10,49 @@ require('dotenv').config();
 exports.updateProfile = async(req,res) => {
     try{
         //fetch details
-        const {about,gender,dateOfBirth,profession} = req.body;
+        const {firstName,lastName,about,gender,dateOfBirth,profession} = req.body;
 
         //fetch user 
         const id = req.user.id;
 
-        //validate data
-        if(!gender || !profession || !dateOfBirth){
-            return res.status(400).json({
-                success:false,
-                message:"Please Provide Compulsory Information"
-            })
-        }
-
-        const user = await User.findById(id).populate("additionalDetails").exec();
-        const profileDetails = await Profile.findById(user.additionalDetails);
+        const userDetails = await User.findById(id).populate("additionalDetails").exec();
+        const profileDetails = await Profile.findById(userDetails.additionalDetails);
 
         //update profile
-        profileDetails.about = about;
-        profileDetails.gender = gender;
-        profileDetails.profession = profession;
-        profileDetails.dateOfBirth = dateOfBirth;
+        if(firstName){
+            userDetails.firstName = firstName;
+        }
+        if(lastName){
+            userDetails.lastName = lastName;
+        }
+        if(about){
+            profileDetails.about = about;
+        }
+        if(gender){
+            profileDetails.gender = gender;
+        }
+        if(profession){
+            profileDetails.profession = profession;
+        }
+        if(dateOfBirth){
+            profileDetails.dateOfBirth = dateOfBirth;
+        }
 
         await profileDetails.save();
+        await userDetails.save();
 
         //return response
         return res.status(200).json({
             success:true,
             message:"Profile Updated Successfully",
             data:profileDetails,
-            user:user
+            user:userDetails
         })
 
     } catch(error){
         return res.status(500).json({
             success:false,
-            message:error.message
+            message:error
         })
     }
 }

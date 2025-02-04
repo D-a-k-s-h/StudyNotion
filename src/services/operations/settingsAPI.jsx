@@ -15,20 +15,18 @@ const {
     DELETEACCOUNT_API
 } = profile;
 
-export function updateProfile(about,gender,dateOfBirth,profession,token){
+export function updateProfile(firstName,lastName,about,gender,dateOfBirth,profession,token){
     return async(dispatch) => {
         dispatch(setLoading(true));
         try{
-            console.log("BEFORE API CALL");
             const response = await apiConnector(
                 "POST",
                 UPDATEPROFILE_API,
-                {about,gender,dateOfBirth,profession},
+                {firstName,lastName,about,gender,dateOfBirth,profession},
                 {
                     Authorization:`Bearer ${token}`
                 }
             );
-            console.log("AFTER API CALL");
 
             if(!response.data.success){
                 throw new Error(response.data.message);
@@ -40,7 +38,7 @@ export function updateProfile(about,gender,dateOfBirth,profession,token){
             dispatch(setUser(response.data.user));
 
         } catch(error){
-            console.log("Error -> ",error.message);
+            console.log("Error -> ",error);
             toast.error("Profile cannot be updated");
         }
         dispatch(setLoading(false));

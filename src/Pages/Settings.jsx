@@ -37,13 +37,20 @@ const Settings = () => {
         console.log("DATA -> ",data);
 
         const {
+            displayName,
             about,
             dateOfBirth,
             gender,
             profession
         } = data;
 
-        dispatch(updateProfile(about,gender,dateOfBirth,profession,token));
+        const firstName = displayName.split(" ").at(0);
+        const lastName = displayName.split(" ").at(1);
+
+        // console.log("firstName -> ",firstName);
+        // console.log("lastName -> ",lastName);
+
+        dispatch(updateProfile(firstName,lastName,about,gender,dateOfBirth,profession,token));
     }
 
     const handlePasswordChange = (data) => {
