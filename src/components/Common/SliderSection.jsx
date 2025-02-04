@@ -69,8 +69,8 @@ const SliderSection = ({courseId}) => {
                     <div className='flex gap-2'>
                       <img src={review?.user?.image} className='w-[3rem] object-cover rounded-full'/>
                       <div className='flex flex-col'>
-                        <p className='font-medium'>{review.user.firstName} {review.user.lastName}</p>
-                        <p className='text-richblack-500 font-medium'>{review.user.email}</p>
+                        <p className='font-medium'>{review?.user?.firstName} {review?.user?.lastName}</p>
+                        <p className='text-richblack-500 font-medium'>{review?.user?.email}</p>
                       </div>
                     </div>
                     <div>
