@@ -67,7 +67,7 @@ const SliderSection = ({courseId}) => {
                 <SwiperSlide key={index}>
                   <div className='bg-richblack-800 h-[190px] flex flex-col gap-2 p-4'>
                     <div className='flex gap-2'>
-                      <img src={review?.user?.image} className='w-[3rem] object-cover rounded-full'/>
+                      <img src={review?.user?.image} alt="userImage" className='w-[3rem] aspect-square object-cover rounded-full'/>
                       <div className='flex flex-col'>
                         <p className='font-medium'>{review?.user?.firstName} {review?.user?.lastName}</p>
                         <p className='text-richblack-500 font-medium'>{review?.user?.email}</p>

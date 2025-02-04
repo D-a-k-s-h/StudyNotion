@@ -10,6 +10,7 @@ import { BsFillEyeFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
 import { LuUpload } from "react-icons/lu";
 import toast from 'react-hot-toast';
+import ConfirmationModal from '../components/Common/ConfirmationModal';
 
 
 const Settings = () => {
@@ -23,6 +24,7 @@ const Settings = () => {
     const [confirmPassword,setConfirmPassword] = useState(false);
     const [previewSource, setPreviewSource] = useState(null);
     const [image,setImage] = useState(null);
+    const [confirmationModal,setConfirmationModal] = useState(null);
 
     const{
         register,
@@ -322,11 +324,19 @@ const Settings = () => {
                         <p className='text-2xl font-semibold'>Delete Account</p>
                         <p>Would you like to delete account?</p>
                         <p>This account contains Paid Courses. Deleting your account will remove all the contain associated with it.</p>
-                        <p className='italic text-[#D43D63] cursor-pointer' onClick={() => dispatch(deleteAccount(token,navigate))}>I want to delete my account.</p>
+                        <p className='italic text-[#D43D63] cursor-pointer' onClick={() => setConfirmationModal({
+                            heading:"Are You Sure?",
+                            para:"Your account will be deleted permanently with all enrolled courses.",
+                            textBtn1:"Delete",
+                            textBtn2:"Cancel",
+                            textBtn1Action:() => dispatch(deleteAccount(token,navigate)),
+                            textBtn2Action:() => setConfirmationModal(null)
+                        })}>I want to delete my account.</p>
                     </div>
                 </div>
             </div>
         </div>
+        {confirmationModal && <ConfirmationModal modalData={confirmationModal}/>}
     </div>
   )
 }
