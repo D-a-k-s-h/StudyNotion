@@ -11,6 +11,7 @@ import { logout } from '../../services/operations/authAPI';
 import { CgProfile } from "react-icons/cg";
 import { CiLogout } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
 
@@ -28,6 +29,7 @@ const Navbar = () => {
     const [subLinks,setSubLinks] = useState([]);
 
     const fetchSubLinks = async() => {
+        const toastId = toast.loading("Loading...");
         try{
             const result = await apiConnector("GET",CATEGORIES_API);
             //console.log("Printing SubLinks Result: ",result);
@@ -36,6 +38,7 @@ const Navbar = () => {
         } catch(error){
             console.log(error.message);
         }
+        toast.dismiss(toastId);
     }
 
     useEffect(() => { 

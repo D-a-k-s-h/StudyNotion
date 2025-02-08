@@ -14,8 +14,8 @@ const {
 } = endpoints;
 
 export function getPasswordResetToken(email,setEmailSent){
-    return async(dispatch) => {
-        dispatch(setLoading(true));
+    return async() => {
+        const toastId = toast.loading("Loading...");
         try{
             const response = await apiConnector("POST",RESETPASSTOKEN_API,{email});
 
@@ -32,13 +32,13 @@ export function getPasswordResetToken(email,setEmailSent){
             console.log(error.message);
             toast.error("Email cannot be sent");
         }
-        dispatch(setLoading(false));
+        toast.dismiss(toastId);
     }
 }
 
 export function resetPassword(password,confirmPassword,token){
-    return async(dispatch) => {
-        dispatch(setLoading(true));
+    return async() => {
+        const toastId = toast.loading("Loading...");
         try{
             const response = await apiConnector("POST",RESETPASSWORD_API,{password,confirmPassword,token});
 
@@ -54,13 +54,13 @@ export function resetPassword(password,confirmPassword,token){
             toast.error("Password cannot be reset");
             console.log(error.message);
         }
-        dispatch(setLoading(false));
+        toast.dismiss(toastId);
     }
 }
 
 export function sendOtp(email,navigate){
-    return async(dispatch) => {
-        dispatch(setLoading(true));
+    return async() => {
+        const toastId = toast.loading("Loading...");
         try{
             const response = await apiConnector("POST",SENDOTP_API,{email});
 
@@ -77,7 +77,7 @@ export function sendOtp(email,navigate){
             toast.error("OTP could not be sent");
             console.log(error.message);
         }
-        dispatch(setLoading(false));
+        toast.dismiss(toastId);
     }
 }
 

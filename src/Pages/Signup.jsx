@@ -48,6 +48,7 @@ const Signup = () => {
     }
 
     function submitHandler(e){
+        const toastId = toast.loading("Loading...");
         e.preventDefault();
 
         if(password !== confirmPassword){
@@ -75,6 +76,8 @@ const Signup = () => {
         });
 
         setAccountType(ACCOUNT_TYPE.STUDENT);
+
+        toast.dismiss(toastId);
     }
 
     const tabData = [
