@@ -88,7 +88,7 @@ const CourseInfo = ({courseDetails,avgRatingCount}) => {
 
   return (
     <div className='flex flex-col rounded-md md:bg-richblack-700'>
-        <img src={courseDetails?.thumbnail} alt='course thumbnail' className='rounded-md md:rounded-t-md'/>
+        <img src={courseDetails?.thumbnail} alt='course thumbnail' className='rounded-md md:rounded-none md:rounded-t-md'/>
         <div className='md:hidden p-4 flex flex-col gap-2'>
           <p className='text-3xl text-richblack-5'>{courseDetails?.name}</p>
           <p>{courseDetails?.description}</p>

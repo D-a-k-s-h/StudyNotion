@@ -37,7 +37,7 @@ const CourseDetail = () => {
             const result = await dispatch(getAllCourseDetails(courseId));
             //console.log("result -> ",result.courseDetails);
             if(result){
-                setCourseDetails(result.courseDetails);
+                setCourseDetails(result?.courseDetails);
             }
         }
 
@@ -48,7 +48,7 @@ const CourseDetail = () => {
     useEffect(() => {
         const count = GetAvgRating(courseDetails?.ratingAndReview);
         setAvgRatingCount(count);
-    },[]);
+    },[avgRatingCount]);
 
   return (
     <div className='text-richblack-200 flex flex-col gap-8'>
@@ -108,7 +108,7 @@ const CourseDetail = () => {
         <div className='md:w-10/12 md:mx-auto px-4 flex flex-col gap-3'>
             <p className='text-richblack-5 text-3xl font-medium'>Author</p>
             <div className='flex items-center gap-3'>
-                <img className='w-[3.5rem] rounded-full' src={courseDetails?.instructor?.image} alt='InstructorImage'/>
+                <img className='w-[4rem] aspect-square object-cover rounded-full' src={courseDetails?.instructor?.image} alt='InstructorImage'/>
                 <p className='text-richblack-5'>{courseDetails?.instructor?.firstName} {courseDetails?.instructor?.lastName}</p>
             </div>
             <p className='md:w-[70%]'>{courseDetails?.instructor?.additionalDetails?.about}</p>

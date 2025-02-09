@@ -226,7 +226,7 @@ const CourseInformationForm = () => {
                 name='courseTags'
                 register={register}
                 errors={errors}
-                placeholder='Enter tags and press enter'
+                placeholder='Enter tags and press enter or .'
                 setValue={setValue}
                 getValues={getValues}
             />

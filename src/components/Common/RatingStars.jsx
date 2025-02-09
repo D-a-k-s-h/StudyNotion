@@ -3,6 +3,8 @@ import { TiStarFullOutline, TiStarHalfOutline, TiStarOutline } from 'react-icons
 
 const RatingStars = ({Review_Count,Star_Size}) => {
 
+  //console.log("review_count -> ",Review_Count);
+
   const [starCount,setStarCount] = useState({
     full:0,
     half:0,
@@ -11,7 +13,7 @@ const RatingStars = ({Review_Count,Star_Size}) => {
 
   useEffect(() => {
     const wholeStars = Math.floor(Review_Count) || 0;
-
+    
     setStarCount({
       full: wholeStars,
       half: Number.isInteger(Review_Count) ? 0 : 1,
