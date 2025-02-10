@@ -9,7 +9,7 @@ const ChipInput = ({label,name,placeholder,register,errors,setValue,getValues}) 
   const [chip,setChip] = useState([]);
 
   const handleAddRequirement = (e) => {
-    if(e.key === 'Enter' || e.key === ',' || e.key === '.'){
+    if(e.key === 'Enter' || e.key === ','){
 
       e.preventDefault();
 
@@ -18,6 +18,14 @@ const ChipInput = ({label,name,placeholder,register,errors,setValue,getValues}) 
         setChip(newChip);
         setRequirement("");
       }
+    }
+  }
+
+  const addRequirementButton = () => {
+    if(requirement){
+      const newChip = [...chip,requirement];
+      setChip(newChip);
+      setRequirement("");
     }
   }
 
@@ -64,6 +72,7 @@ const ChipInput = ({label,name,placeholder,register,errors,setValue,getValues}) 
             onChange={(e) => setRequirement(e.target.value)}
             onKeyDown={handleAddRequirement}
         />
+        <button type='button' onClick={addRequirementButton} className='md:hidden block w-fit text-yellow-50'>Add</button>
         {
           errors[name] && (
             <span className='text-red'>Please enter tags</span>
