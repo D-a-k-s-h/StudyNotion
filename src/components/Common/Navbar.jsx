@@ -21,7 +21,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [toggleHamburger,setToggleHamburger] = useState(false);
-    console.log(toggleHamburger);
+    //console.log(toggleHamburger);
 
     const {CATEGORIES_API} = categories;
 

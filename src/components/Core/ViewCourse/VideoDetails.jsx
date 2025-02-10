@@ -115,7 +115,7 @@ const VideoDetails = () => {
 
         const filterVideoData = filteredData?.[0]?.subSection.filter((data) => data._id === subSectionId);
 
-        setVideoData(filterVideoData[0]);
+        setVideoData(filterVideoData?.[0]);
         setVideoEnded(false);
       }
     }

@@ -4,6 +4,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints, profile } from "../apis";
 import { setUser } from "../../slices/profileSlices";
 import { logout } from "./authAPI";
+import { resetCart } from "../../slices/cartSlice";
 
 const {
     CHANGEPASSWORD_API
@@ -127,6 +128,7 @@ export function deleteAccount(token,navigate){
             }
 
             toast.success("Account Deleted Successfully");
+            dispatch(resetCart());
             dispatch(logout(navigate));
             navigate("/login");
 

@@ -3,6 +3,7 @@ const Profile = require('../models/Profile');
 const Course = require('../models/Course');
 const { uploadFileToCloudinary, convertSecondsToDuration } = require('../utils/imageUploader');
 const CourseProgress = require('../models/CourseProgress');
+const Section = require('../models/Section');
 require('dotenv').config();
 
 
@@ -79,10 +80,19 @@ exports.deleteAccount = async(req,res) => {
         const courseDetails = userDetails.courses;
         courseDetails.forEach(async(element) => {
             await Course.findByIdAndUpdate(element,{$pull:{studentsEnrolled:userId}},{new:true})
-        })
 
-        //deleting the course progress as well
-        await CourseProgress.findByIdAndDelete(userDetails.courseProgress);
+            const courseData = await Course.findById(element).populate("courseContent").exec();
+            //console.log("Course data ->",courseData);
+            
+            courseData.courseContent.forEach(async(section) => {
+                const sectionData = await Section.findById(section._id).populate("subSection").exec();
+                //console.log("Section Data -> ",sectionData);
+
+                sectionData.subSection.forEach(async(subSection) => {
+                    await CourseProgress.findByIdAndUpdate(userDetails.courseProgress,{$pull:{completedVideos:subSection._id}},{new:true});
+                })
+            })
+        })
 
         //delete user account
         await User.findByIdAndDelete(userId);
