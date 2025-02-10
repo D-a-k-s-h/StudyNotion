@@ -78,8 +78,11 @@ exports.deleteAccount = async(req,res) => {
         //delete the user id from enrolled courses
         const courseDetails = userDetails.courses;
         courseDetails.forEach(async(element) => {
-            const courseEnrolled = await Course.findByIdAndUpdate(element,{$pull:{studentsEnrolled:userId}},{new:true})
+            await Course.findByIdAndUpdate(element,{$pull:{studentsEnrolled:userId}},{new:true})
         })
+
+        //deleting the course progress as well
+        await CourseProgress.findByIdAndDelete(userDetails.courseProgress);
 
         //delete user account
         await User.findByIdAndDelete(userId);
