@@ -99,7 +99,22 @@ exports.getAllCourses = async(req,res) => {
             status:true,
             createdAt:true,
             whatYouWillLearn:true
-        })  
+        }).populate({path:"courseContent",populate:{path:"subSection"}});
+
+        allCourse.forEach(async(course) => {
+            let totalDurationInSeconds = 0;
+            course.courseContent.forEach((content) => {
+                content.subSection.forEach((subSection) => {
+                    const timeDurationInSeconds = parseInt(subSection.timeDuration);
+                    totalDurationInSeconds += totalDurationInSeconds;
+                })
+            });
+            const totalDuration = convertSecondsToDuration(totalDurationInSeconds);
+
+            
+        });
+
+        //console.log("all courses -> ",allCourse);
 
         //return response
         return res.status(200).json({

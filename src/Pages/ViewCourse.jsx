@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Outlet, useParams } from 'react-router-dom'
 import { getAllCourseDetails } from '../services/operations/coursesAPI';
 import { setCompletedLectures, setCourseSectionData, setEntireCourseData, setTotalNoOfLectures } from '../slices/viewCourseSlice';
@@ -11,6 +11,7 @@ const ViewCourse = () => {
     const [reviewModal,setReviewModal] = useState(null);
     const {courseId} = useParams();
     const dispatch = useDispatch();
+    const [loading,setLoading] = useState(true);
 
     useEffect(() => {
         const setCourseSpecificDetails = async() => {
@@ -23,19 +24,26 @@ const ViewCourse = () => {
                 lectures += sec.subSection.length;
             });
             dispatch(setTotalNoOfLectures(lectures));
+            setLoading(false);
         }
 
         setCourseSpecificDetails();
     },[]);
 
   return (
-    <div>
-        <div className='flex gap-0 md:gap-5 lg:gap-10'>
-            <VideoDetailsSidebar setReviewModal={setReviewModal}/>
-            <div className='p-1 md:p-0'>
-                <Outlet/>
-            </div>
-        </div>
+    <div className='flex'>
+        {
+            loading ? (
+                <div className='spinner mt-40 ml-[50%]'></div>
+            ) : (
+                <div className='flex gap-0 md:gap-5 lg:gap-10'>
+                    <VideoDetailsSidebar setReviewModal={setReviewModal}/>
+                    <div className='p-1 md:p-0'>
+                        <Outlet/>
+                    </div>
+                </div>
+            )
+        }
         {reviewModal && <CourseReviewModal setReviewModal={setReviewModal}/>}
     </div>
   )

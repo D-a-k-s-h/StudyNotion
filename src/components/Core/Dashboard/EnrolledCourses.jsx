@@ -18,7 +18,7 @@ const EnrolledCourses = () => {
         const getUserEnrolledCourses = async() => {
             try{
                 const response = await dispatch(getEnrolledCourses(token));
-                console.log("enrolled courses response -> ",response)
+                //console.log("enrolled courses response -> ",response)
                 setEnrolledCourses(response);
     
             } catch(error){
@@ -30,12 +30,11 @@ const EnrolledCourses = () => {
     },[dispatch,token]);
 
   return (
-    <div className='text-richblack-5 flex flex-col gap-10 overflow-x-hidden'>
+    <div className='text-richblack-5 flex flex-col gap-10'>
         <div className='text-4xl'>Enrolled Courses</div>
         {
             !enrolledCourses ? (
-                
-                <div className="spinner"></div>
+                <div className="spinner self-center"></div>
             ) 
             :enrolledCourses.length === 0 ? (<div className='text-center text-2xl mt-4 text-richblack-300'>You have not enrolled in any course yet.</div>) 
             :(

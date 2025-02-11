@@ -46,7 +46,7 @@ const Instructor = () => {
         </div>
         {
             loading ? (
-                <div className='spinner'></div>
+                <div className='spinner mt-40 ml-[50%]'></div>
             ) : (
                 <div>
                     {

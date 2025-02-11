@@ -10,14 +10,7 @@ const Dashboard = () => {
 
     if(authLoading || profileLoading){
         return(
-            <div className="spinner">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+            <div className="spinner"></div>
         )
     }
 
