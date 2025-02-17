@@ -84,10 +84,10 @@ exports.getPageDetails = async(req,res) => {
         //get details for different categories
         const differentCategories = await Category.find({_id: {$ne:categoryId}});
 
-        let differentCategory = await Category.findOne(differentCategories[getRandomInt(differentCategories.length)]._id).populate({path:"course",match:{status:"Published"},populate:"instructor"}).exec();
+        let differentCategory = await Category.findOne(differentCategories[getRandomInt(differentCategories.length)]._id).populate({path:"course",match:{status:"Published"},populate:"instructor",populate:"ratingAndReview"}).exec();
 
         //get top selling courses
-        const allCategories = await Category.find().populate({path:"course",match:{status:"Published"},populate:"instructor"}).exec();
+        const allCategories = await Category.find().populate({path:"course",match:{status:"Published"},populate:"instructor",populate:"ratingAndReview"}).exec();
         const allCourses = allCategories.flatMap((category) => category.course)
         const mostSellingCourses = allCourses.sort((a,b) => b.sold - a.sold).slice(0,10);
 

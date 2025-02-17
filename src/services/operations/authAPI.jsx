@@ -94,6 +94,7 @@ export function signUp(
 ){
     return async(dispatch) => {
         dispatch(setLoading(true));
+        const toastId = toast.loading("Loading...");
         try{
             const response = await apiConnector("POST",SIGNUP_API,{firstName,lastName,contactNumber,email,password,confirmPassword,accountType,otp});
             
@@ -111,6 +112,7 @@ export function signUp(
             toast.error("Sign up failed");
             navigate("/signup");
         }
+        toast.dismiss(toastId);
         dispatch(setLoading(false));
     }
 }
@@ -118,6 +120,7 @@ export function signUp(
 export function login(email,password,navigate){
     return async(dispatch) => {
         dispatch(setLoading(true));
+        const toastId = toast.loading("Loading...");
         try{
             const response = await apiConnector("POST",LOGIN_API,{email,password});
 
@@ -144,6 +147,7 @@ export function login(email,password,navigate){
             toast.error("Login Failed");
             console.log(error);
         }
+        toast.dismiss(toastId);
         dispatch(setLoading(false));
     } 
 }

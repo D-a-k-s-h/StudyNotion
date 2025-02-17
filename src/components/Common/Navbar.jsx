@@ -64,7 +64,7 @@ const Navbar = () => {
                                     <p>{element.title}</p>
                                     <RiArrowDownWideLine/>
 
-                                    <div className='invisible absolute z-10 lg:w-[200px] -left-[100%] top-[100%] translate-y-2 flex flex-col gap-2 font-semibold rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200'>
+                                    <div className='invisible absolute z-[999] lg:w-[200px] -left-[100%] top-[100%] translate-y-2 flex flex-col gap-2 font-semibold rounded-md bg-richblack-5 p-4 text-richblack-900 opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200'>
 
                                         <div className='absolute left-[73%] -top-2 h-6 w-6 rotate-45 rounded-md bg-richblack-5'></div>
 
@@ -104,7 +104,7 @@ const Navbar = () => {
 
                                                     {
                                                         toggleHamburger && (
-                                                            <div className='invisible absolute z-10 lg:w-[200px] -left-[100%] top-[100%] translate-y-2 flex flex-col gap-2 font-semibold rounded-md bg-richblack-700 p-4 text-richblack-5 border border-richblack-400 opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200'>
+                                                            <div className='invisible absolute z-[999] lg:w-[200px] -left-[100%] top-[100%] translate-y-2 flex flex-col gap-2 font-semibold rounded-md bg-richblack-700 p-4 text-richblack-5 border border-richblack-400 opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200'>
 
                                                                 <div className='absolute left-[73%] -top-2 h-6 w-6 rotate-45 rounded-md bg-richblack-700 text-richblack-5'></div>
 

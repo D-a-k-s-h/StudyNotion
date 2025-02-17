@@ -63,7 +63,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
           courseSectionData.map((section,index) => (
             <div key={index} className='flex flex-col gap-1'>
                 {/* Section */}
-                <div onClick={() => setActiveStatus(section._id)} className='cursor-pointer flex justify-between border border-richblack-600 bg-richblack-700 p-2 md:p-3 items-center'>
+                <div onClick={() => setActiveStatus(section._id)} className='cursor-pointer select-none flex justify-between border border-richblack-600 bg-richblack-700 p-2 md:p-3 items-center'>
                   <p>{section.sectionName}</p>
                   <MdKeyboardDoubleArrowDown className={`${activeStatus !== section._id && 'rotate-90'} transition-all duration-200`}/>
                 </div>
@@ -72,7 +72,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
                 <div>
                   {
                     activeStatus === section._id && (
-                      <div>
+                      <div className='select-none'>
                         {
                           section.subSection.map((topic,index) => (
                             <div key={index} 

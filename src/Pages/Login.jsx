@@ -8,7 +8,6 @@ import AccountSelector from '../components/Common/AccountSelector';
 import { useDispatch } from 'react-redux';
 import { login } from '../services/operations/authAPI';
 import { ACCOUNT_TYPE } from '../utils/constants';
-import toast from 'react-hot-toast';
 
 
 const Login = () => {
@@ -37,7 +36,6 @@ const Login = () => {
     }
 
     const handleSubmit = (e) => {
-        const toastId = toast.loading("Loading...");
         e.preventDefault();
 
         dispatch(login(email,password,navigate));
@@ -49,7 +47,6 @@ const Login = () => {
         })
 
         setAccountType(ACCOUNT_TYPE.STUDENT);
-        toast.dismiss(toastId);
     }
 
     const tabData = [
