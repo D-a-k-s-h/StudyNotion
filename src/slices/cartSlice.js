@@ -55,7 +55,7 @@ const cartSlice = createSlice({
                 return;
             }
 
-            toast.error("Course not found");
+            //toast.error("Course not found");
         },
         resetCart(state){
 

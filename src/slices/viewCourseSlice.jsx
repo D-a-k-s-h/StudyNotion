@@ -24,7 +24,7 @@ const viewCourseSlice = createSlice({
             state.completedLecture = action.payload;
         },
         updateCompletedLectures(state,action){
-            state.completedLecture = action.payload;
+            state.completedLecture.push(action.payload);
         }
     }
 })

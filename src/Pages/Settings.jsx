@@ -180,8 +180,8 @@ const Settings = () => {
                                 <div className='flex flex-col'>
                                     <label htmlFor='dateOfBirth'>Date Of Birth</label>
                                     <input 
-                                        className='w-full md:w-[91%] text-[#000814] bg-[#D3CCC0] p-2 rounded-md border-b border-b-richblack-400'
-                                        type='date' 
+                                        className='w-full md:w-[91%] text-black bg-[#D3CCC0] p-2 rounded-md border-b border-b-richblack-400'
+                                        type='date'
                                         name='dateOfBirth'
                                         defaultValue={user?.additionalDetails?.dateOfBirth}
                                         {...register("dateOfBirth")}

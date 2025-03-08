@@ -53,7 +53,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
           </div>
           <div className='flex flex-col gap-2'>
             <p>{courseEntireData?.name}</p>
-            <p className={`text-sm ${completedLecture.length === totalNoOfLectures ? 'text-caribbeangreen-100' : 'text-richblack-100'}`}>{completedLecture.length ? completedLecture.length : 0} / {totalNoOfLectures}</p>
+            <p className={`text-sm ${completedLecture.length === totalNoOfLectures ? 'text-caribbeangreen-100' : 'text-richblack-100'}`}>{completedLecture?.length ? completedLecture?.length : 0} / {totalNoOfLectures}</p>
           </div>
       </div>
 
