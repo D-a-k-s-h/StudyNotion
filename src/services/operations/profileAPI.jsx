@@ -30,7 +30,7 @@ export function getEnrolledCourses(token){
                 throw new Error(response.data.messsage);
             }
 
-            console.log("ENROLLED COURSE RESPONSE -> ",response);
+            //console.log("ENROLLED COURSE RESPONSE -> ",response);
 
             //toast.success("Enrolled courses fetched successfully");
 
@@ -63,7 +63,7 @@ export function getAllCourses(token){
                 throw new Error(response.data.messsage);
             }
 
-            console.log("INSTRUCTOR COURSES RESPONSE -> ",response);
+            //console.log("INSTRUCTOR COURSES RESPONSE -> ",response);
 
             result.push(response.data.data);
             //toast.success("Courses Fetched Successfully");

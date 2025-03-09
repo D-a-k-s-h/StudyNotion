@@ -80,7 +80,7 @@ export function getCourseSpecificRating(courseId){
                 throw new Error(response.data.message);
             }
 
-            console.log("course specific rating response -> ",response);
+            //console.log("course specific rating response -> ",response);
 
             result.push(response.data.data);
             //toast.success("course specific rating and reviews fetched");

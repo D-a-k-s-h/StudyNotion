@@ -27,7 +27,7 @@ export function deleteCourse(courseId,token){
                 }
             )
 
-            console.log("DELETING COURSE RESPONSE -> ",response);
+            //console.log("DELETING COURSE RESPONSE -> ",response);
 
             result = response.data.data;
             toast.success("Course Successfully Deleted");
@@ -53,7 +53,7 @@ export function getAllCategories(){
                 throw new Error(response.data.error);
             }
 
-            console.log("FETCH CATEGORY RESPONSE -> ",response);
+            //console.log("FETCH CATEGORY RESPONSE -> ",response);
 
             result.push(response.data.data);
 
@@ -85,7 +85,7 @@ export function editCourseDetails(formData,token){
                 throw new Error(response.data.message);
             }
 
-            console.log("Update course response -> ",response);
+            //console.log("Update course response -> ",response);
 
             result = response.data.data;
             toast.success("Course updated successfully");
@@ -114,7 +114,7 @@ export function createCourse(formData,token){
                 }
             );
 
-            console.log("CREATING COURSE RESPONSE -> ",response);
+            //console.log("CREATING COURSE RESPONSE -> ",response);
 
             if(!response.data.success){
                 throw new Error(response.data.error);
@@ -146,7 +146,7 @@ export function getAllCourseDetails(courseId){
                 throw new Error(response.data.message);
             }
 
-            console.log("Get all course details response -> ",response);
+            //console.log("Get all course details response -> ",response);
             
             result = response.data.data;
             toast.success("Course details fetched successfully");

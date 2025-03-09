@@ -55,7 +55,7 @@ export function buyCourse(courses,token,userDetails,dispatch,navigate){
                 throw new Error(orderResponse.data.message);
             }
 
-            console.log("order response -> ",orderResponse);
+            //console.log("order response -> ",orderResponse);
 
             //options
             const options = {
@@ -130,7 +130,7 @@ async function verifyPayment(bodyData,token,navigate,dispatch) {
             }
         );
 
-        console.log("VERIFY PAYMENT RESPONSE -> ",response);
+        //console.log("VERIFY PAYMENT RESPONSE -> ",response);
 
         if(!response.data.success){
             throw new Error(response.data.message);
@@ -138,7 +138,7 @@ async function verifyPayment(bodyData,token,navigate,dispatch) {
 
         toast.success("Payment Successful");
         navigate("/dashboard/enrolled-courses");
-        console.log("Body data -> ",bodyData);
+        //console.log("Body data -> ",bodyData);
 
         //remove course from cart, if bought seperately
         for(const courseId of bodyData.courses){

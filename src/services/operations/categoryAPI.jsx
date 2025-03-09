@@ -21,7 +21,7 @@ export function getAllCategoryDetails(categoryId){
                 throw new Error(response.data.message);
             }
 
-            console.log("Get all category details response -> ",response);
+            //console.log("Get all category details response -> ",response);
 
             //toast.success("Details fetched successfully");
             result = response.data.data;

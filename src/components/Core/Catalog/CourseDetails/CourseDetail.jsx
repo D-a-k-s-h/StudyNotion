@@ -35,14 +35,14 @@ const CourseDetail = () => {
     useEffect(() => {
         const getDetails = async() => {
             const result = await dispatch(getAllCourseDetails(courseId));
-            //console.log("result -> ",result.courseDetails);
+            //console.log("result -> ",result?.courseDetails);
             if(result){
                 setCourseDetails(result?.courseDetails);
             }
         }
 
         getDetails();
-        console.log("courseDetails -> ",courseDetails);
+        //console.log("courseDetails -> ",courseDetails);
     },[]);
 
     useEffect(() => {
@@ -62,8 +62,8 @@ const CourseDetail = () => {
                     <p className='text-3xl text-richblack-5'>{courseDetails?.name}</p>
                     <p>{courseDetails?.description}</p>
                     <div className='flex flex-row gap-2 items-center text-richblack-25'>
-                        <span className='text-yellow-50'>{avgRatingCount ? avgRatingCount : 0}</span>
-                        <RatingStars Review_Count={avgRatingCount ? avgRatingCount : 0}/>
+                        <span className='text-yellow-50'>{avgRatingCount}</span>
+                        <RatingStars Review_Count={avgRatingCount}/>
                         <span>{`(${courseDetails?.ratingAndReview?.length} ratings)`}</span>
                         <span>{`${courseDetails?.studentsEnrolled?.length} students`}</span>
                     </div>

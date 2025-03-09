@@ -33,7 +33,7 @@ export function updateProfile(firstName,lastName,about,gender,dateOfBirth,profes
                 throw new Error(response.data.message);
             }
 
-            console.log("UPDATE PROFILE RESPONSE -> ",response);
+            //console.log("UPDATE PROFILE RESPONSE -> ",response);
 
             toast.success("Profile Updated Successfully");
             dispatch(setUser(response.data.user));
@@ -64,7 +64,7 @@ export function updateDisplayPicture(token, formData){
                 throw new Error(response.data.message);
             }
 
-            console.log("UPDATE PICTURE RESPONSE -> ",response);
+            //console.log("UPDATE PICTURE RESPONSE -> ",response);
 
             toast.success("Display Picture Updated");
             //update user with new image
@@ -91,7 +91,7 @@ export function changePassword(currentPassword,changePassword,confirmPassword,to
                 }
             );
 
-            console.log("CHANGE PASSWORD RESPONSE -> ",response);
+            //console.log("CHANGE PASSWORD RESPONSE -> ",response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
@@ -121,7 +121,7 @@ export function deleteAccount(token,navigate){
                 }
             );
 
-            console.log("RESPONSE -> ",response);
+            //console.log("RESPONSE -> ",response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);

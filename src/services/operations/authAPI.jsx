@@ -19,7 +19,7 @@ export function getPasswordResetToken(email,setEmailSent){
         try{
             const response = await apiConnector("POST",RESETPASSTOKEN_API,{email});
 
-            console.log("RESET PASSWORD TOKEN -> ",response);
+            //console.log("RESET PASSWORD TOKEN -> ",response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
@@ -42,7 +42,7 @@ export function resetPassword(password,confirmPassword,token){
         try{
             const response = await apiConnector("POST",RESETPASSWORD_API,{password,confirmPassword,token});
 
-            console.log("RESET PASSWORD RESPONSE -> ",response)
+            //console.log("RESET PASSWORD RESPONSE -> ",response)
 
             if(!response.data.success){
                 throw new Error(response.data.message);
@@ -68,7 +68,7 @@ export function sendOtp(email,navigate){
                 throw new Error(response.data.message);
             }
 
-            console.log("SENDOTP_API RESPONSE -> ",response)
+            //console.log("SENDOTP_API RESPONSE -> ",response)
 
             toast.success(`OTP sent to ${email}`);
             navigate("/verify-email");
@@ -102,7 +102,7 @@ export function signUp(
                 throw new Error(response.data.message);
             }
 
-            console.log("SIGNUP RESPONSE -> ",response);
+            //console.log("SIGNUP RESPONSE -> ",response);
 
             toast.success("Sign Up Successfull");
             navigate("/login");
@@ -128,7 +128,7 @@ export function login(email,password,navigate){
                 throw new Error("LOGIN_API RESPONSE",response.data.message);
             }
 
-            console.log("LOGIN_API RESPONSE -> ",response);
+            //console.log("LOGIN_API RESPONSE -> ",response);
 
             toast.success("Login Successfull");
             //set token value retrieved from response

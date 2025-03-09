@@ -25,7 +25,7 @@ export function createSection(data,token){
                 }
             )
 
-            console.log("CREATING SECTION RESPONSE -> ",response);
+            //console.log("CREATING SECTION RESPONSE -> ",response);
 
             if(!response.data.success){
                 throw new Error(response.data.message);
@@ -91,7 +91,7 @@ export function createSubSection(formData,token){
                 throw new Error(response.data.message);
             }
 
-            console.log("Create sub-section response -> ",response);
+            //console.log("Create sub-section response -> ",response);
 
             result = response.data.data;
             toast.success("Lecture Added");
@@ -124,7 +124,7 @@ export function updateSubSection(formData,token){
                 throw new Error(response.data.message);
             }
 
-            console.log("updating sub-section response -> ",response);
+            //console.log("updating sub-section response -> ",response);
 
             result = response.data.data;
             toast.success("Lecture updated successfully");
@@ -155,7 +155,7 @@ export function deleteSection(data,token){
                 
             )
 
-            console.log("Response while deleting section",response);
+            //console.log("Response while deleting section",response);
 
             result = response.data.data;
             toast.success("Section deleted successfully");
@@ -185,7 +185,7 @@ export function deleteSubSection(data,token){
                 }
             )
 
-            console.log("Response while deleting sub-section",response);
+            //console.log("Response while deleting sub-section",response);
 
             result = response.data.data;
             toast.success("Lecture deleted");
