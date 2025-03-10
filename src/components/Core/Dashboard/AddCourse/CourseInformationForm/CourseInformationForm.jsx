@@ -59,7 +59,7 @@ const CourseInformationForm = () => {
     }
 
     const submitHandler = async(data) => {
-        console.log("DATA -> ",data);
+        //console.log("DATA -> ",data);
         //console.log("Tags",data.courseTags.toString());
 
         if(editCourse){
@@ -99,7 +99,7 @@ const CourseInformationForm = () => {
 
                 setLoading(true);
                 const result = await dispatch(editCourseDetails(formData,token));
-                console.log("Edit form result",result);
+                //console.log("Edit form result",result);
                 setLoading(false);
                 if(result){
                     dispatch(setStep(2));
@@ -138,8 +138,8 @@ const CourseInformationForm = () => {
     useEffect(() => {
         getCategories();
 
-        //console.log("Course -> ",course);
-        console.log("Edit course -> ",editCourse);
+        console.log("Course for category checking -> ",course);
+        //console.log("Edit course -> ",editCourse);
         // console.log(course?.tag);
         // console.log(course?.instructions);
         if(editCourse){
@@ -206,14 +206,27 @@ const CourseInformationForm = () => {
         </div>
         <div className='flex flex-col'>
             <label>Select Category <sup className='text-[#f23e3e]'>*</sup></label>
-            <select {...register("category",{required:true})} defaultValue="" className='p-2 bg-richblack-700 text-richblack-5 rounded-md border-b border-b-richblack-400'>
-                <option value="" disabled>Choose a category</option>
-                {
-                    category.map((element,index) => (
-                        <option key={index} value={element._id}>{element.name}</option>
-                    ))
-                }
-            </select>
+            {
+                editCourse ? (
+                    <select {...register("category",{required:true})} defaultValue={course?.category?._id} className='p-2 bg-richblack-700 text-richblack-5 rounded-md border-b border-b-richblack-400'>
+                        <option value="" disabled>Choose a category</option>
+                        {
+                            category.map((element,index) => (
+                                <option key={index} value={element._id}>{element.name}</option>
+                            ))
+                        }
+                    </select>
+                ) : (
+                    <select {...register("category",{required:true})} defaultValue="" className='p-2 bg-richblack-700 text-richblack-5 rounded-md border-b border-b-richblack-400'>
+                        <option value="" disabled>Choose a category</option>
+                        {
+                            category.map((element,index) => (
+                                <option key={index} value={element._id}>{element.name}</option>
+                            ))
+                        }
+                    </select>
+                )
+            }
             {
                 errors.category && (
                     <span className='text-[#eb3b3b]'>Please specify category.</span>
